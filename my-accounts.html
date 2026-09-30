@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>MY ACCOUNTS | SMMMARIA Panel</title>
+    
+    <!-- SEO METADATA & FAVICONS (Same as buy-account.html) -->
+    <meta name="description" content="View your purchased social media accounts and credentials.">
+    <link rel="canonical" href="https://smmaria.netlify.app/my-accounts.html">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS IMPORTS -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/cards.css">
+    <link rel="stylesheet" href="assets/css/buttons.css">
+    <link rel="stylesheet" href="assets/css/forms.css">
+    <link rel="stylesheet" href="assets/css/tables.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/buy-account.css">
+</head>
+<body data-page="my-accounts">
+    <div class="app-container">
+        
+        <!-- SIDEBAR COMPONENT -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar__header">
+                <a href="dashboard.html" class="sidebar__logo">
+                    <span class="logo-text">SMM<span class="text-gold">MARIA</span></span>
+                </a>
+                <button class="sidebar__collapse-btn" id="collapse-btn" aria-label="Collapse Sidebar">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+            </div>
+            
+            <nav class="sidebar__nav">
+                <ul class="sidebar__menu">
+                    <li class="sidebar__item"><a href="dashboard.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg><span class="link-text">Dashboard</span></a></li>
+                    <li class="sidebar__item"><a href="new-order.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg><span class="link-text">New Order</span></a></li>
+                    <li class="sidebar__item"><a href="mass-order.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg><span class="link-text">Mass Order</span></a></li>
+                    <li class="sidebar__item"><a href="services.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><span class="link-text">Services</span></a></li>
+                    <li class="sidebar__item"><a href="orders.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4"></path><polyline points="9 11 12 14 15 11"></polyline><line x1="12" y1="2" x2="12" y2="14"></line></svg><span class="link-text">Orders</span></a></li>
+                    
+                    <li class="sidebar__item"><a href="buy-account.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg><span class="link-text">Buy Account</span></a></li>
+                    <li class="sidebar__item active"><a href="my-accounts.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="link-text">My Accounts</span></a></li>
+
+                    <li class="sidebar__item"><a href="tickets.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span class="link-text">Tickets</span></a></li>
+                    <li class="sidebar__item"><a href="wallet.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg><span class="link-text">Wallet</span></a></li>
+                    <li class="sidebar__item"><a href="refill.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg><span class="link-text">Refill</span></a></li>
+                    <li class="sidebar__item"><a href="api.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg><span class="link-text">API</span></a></li>
+                    <li class="sidebar__item"><a href="affiliate.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><span class="link-text">Affiliate</span></a></li>
+                    <li class="sidebar__item "><a href="documentation.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg><span class="link-text">Documentation</span></a></li>
+                    <li class="sidebar__item"><a href="settings.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg><span class="link-text">Settings</span></a></li>
+                    <li class="sidebar__item"><a href="invoice.html" class="sidebar__link"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line></svg><span class="link-text">Invoice</span></a></li>
+                </ul>
+            </nav>
+            
+                          <div class="sidebar__widgets">
+                <div class="sidebar__widget">
+                    <span class="sidebar__widget-label">Account Balance</span>
+                    <div class="widget-balance" data-widget="balance">
+                       <span class="widget-balance__amount" data-widget="balance-value">0.00</span>
+                        <a href="wallet.html" class="widget-balance__btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg>
+                            Add Funds
+                        </a>
+                    </div>
+                </div>
+
+
+
+                <div class="sidebar__widget" data-widget-section="currency">
+                    <span class="sidebar__widget-label">
+                        <svg class="widget-label__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        Currency
+                    </span>
+                    <div class="widget-currency" data-widget="currency">
+                        <button class="widget-currency__selected" id="currencySelectedBtn" type="button">
+                            <span class="widget-currency__flag" id="currencyFlag">USD</span>
+                            <span class="widget-currency__code" id="currencyCode">USD</span>
+                            <svg class="widget-currency__chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="widget-currency__dropdown" id="currencyDropdown">
+                            <div class="widget-currency__search">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                <input type="text" class="widget-currency__search-input" id="currencySearchInput" placeholder="Search currency..." autocomplete="off">
+                            </div>
+                            <div class="widget-currency__list" id="currencyList">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar__widget" data-widget-section="statistics">
+                    <span class="sidebar__widget-label">
+                        <svg class="widget-label__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
+                        Statistics
+                    </span>
+                    <div class="widget-stats">
+                        <div class="widget-stat">
+                            <span class="widget-stat__label">Total</span>
+                            <span class="widget-stat__value" data-stat="total-orders">0</span>
+                        </div>
+                        <div class="widget-stat">
+                            <span class="widget-stat__label">Completed</span>
+                            <span class="widget-stat__value" data-stat="completed-orders">0</span>
+                        </div>
+                        <div class="widget-stat">
+                            <span class="widget-stat__label">Processing</span>
+                            <span class="widget-stat__value" data-stat="processing-orders">0</span>
+                        </div>
+                        <div class="widget-stat">
+                            <span class="widget-stat__label">Success</span>
+                            <span class="widget-stat__value widget-stat__value--accent" data-stat="success-rate">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar__widget" data-widget-section="services">
+                    <span class="sidebar__widget-label">
+                        <svg class="widget-label__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                        Service Status
+                    </span>
+                    <div class="widget-services">
+                        <div class="widget-service" data-service-status="instagram" data-status="online">
+                            <span class="widget-service__dot" data-status-indicator></span>
+                            <span class="widget-service__name">Instagram</span>
+                            <span class="widget-service__status">Online</span>
+                        </div>
+                        <div class="widget-service" data-service-status="tiktok" data-status="online">
+                            <span class="widget-service__dot" data-status-indicator></span>
+                            <span class="widget-service__name">TikTok</span>
+                            <span class="widget-service__status">Online</span>
+                        </div>
+                        <div class="widget-service" data-service-status="facebook" data-status="online">
+                            <span class="widget-service__dot" data-status-indicator></span>
+                            <span class="widget-service__name">Facebook</span>
+                            <span class="widget-service__status">Online</span>
+                        </div>
+                        <div class="widget-service" data-service-status="youtube" data-status="online">
+                            <span class="widget-service__dot" data-status-indicator></span>
+                            <span class="widget-service__name">YouTube</span>
+                            <span class="widget-service__status">Online</span>
+                        </div>
+                        <div class="widget-service" data-service-status="telegram" data-status="online">
+                            <span class="widget-service__dot" data-status-indicator"></span>
+                            <span class="widget-service__name">Telegram</span>
+                            <span class="widget-service__status">Online</span>
+                        </div>
+                        <div class="widget-service" data-service-status="twitter" data-status="online">
+                            <span class="widget-service__dot" data-status-indicator></span>
+                            <span class="widget-service__name">Twitter/X</span>
+                            <span class="widget-service__status">Online</span>
+                        </div>
+                        <div class="widget-service" data-service-status="spotify" data-status="online">
+                            <span class="widget-service__dot" data-status-indicator></span>
+                            <span class="widget-service__name">Spotify</span>
+                            <span class="widget-service__status">Online</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar__widget" data-widget-section="help">
+                    <span class="sidebar__widget-label">
+                        <svg class="widget-label__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        Help & Support
+                    </span>
+               <div class="widget-help">
+                     <a href="support.html" class="widget-help__btn widget-help__btn--chat">
+                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                         Live Chat
+                    </a>
+                        <button class="widget-help__btn widget-help__btn--ticket" data-widget="open-ticket">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                            Open Ticket
+                        </button>
+                        <button class="widget-help__btn widget-help__btn--whatsapp" data-widget="whatsapp-support">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                            WhatsApp Support
+                        </button>
+                    </div>
+                </div>
+
+                <div class="sidebar__widget" data-widget-section="community">
+                    <span class="sidebar__widget-label">
+                        <svg class="widget-label__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        Community
+                    </span>
+                    <div class="widget-community">
+                        <a href="#" class="widget-community__link" data-community="telegram" title="Telegram">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        </a>
+                        <a href="#" class="widget-community__link" data-community="whatsapp" title="WhatsApp Group">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                        </a>
+                        <a href="#" class="widget-community__link" data-community="discord" title="Discord">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar__footer">
+               <a href="login.html" class="sidebar__link sidebar__link--logout" onclick="handleLogout()"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg><span class="link-text">Logout</span></a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="main-wrapper">
+            
+            <!-- NAVBAR COMPONENT -->
+            <header class="navbar">
+                <div class="navbar__left">
+                    <button class="navbar__toggle" id="mobile-menu-toggle" aria-label="Open Menu">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                    <div class="navbar__search">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" placeholder="Search accounts..." class="navbar__search-input" aria-label="Search">
+                    </div>
+                </div>
+                
+                <div class="navbar__right">
+                    <div class="navbar__balance">
+                        <span class="balance-label">Balance:</span>
+                       <span class="balance-amount text-gold">0.00</span>
+                    </div>
+                     <!-- NEW NOTIFICATION BUTTON -->
+        <a href="notifications.html" class="navbar__icon-btn" id="notif-btn" aria-label="Notifications" style="position: relative;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <!-- Badge will be injected here by JS -->
+        </a>
+                    <button class="navbar__icon-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </button>
+                    <div class="navbar__profile">
+                        <div class="avatar">..</div>
+                        <div class="profile__info">
+                            <span class="profile__name">Guest</span>
+                            <span class="profile__role">User</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- PAGE SPECIFIC CONTENT -->
+            <main class="content-area" id="page-content">
+                <div class="page-header">
+                    <h1 class="page-title">My Purchased Accounts</h1>
+                    <div class="breadcrumbs"><a href="dashboard.html">Dashboard</a> / <span>My Accounts</span></div>
+                </div>
+                
+                <div class="card table-card">
+                    <div class="table-responsive">
+                        <table class="table datatable">
+                            <thead>
+                                <tr>
+                                    <th>Purchase ID</th>
+                                    <th>Platform</th>
+                                    <th>Username</th>
+                                    <th>Price</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myAccountsTableBody">
+                                <tr><td colspan="7" class="text-center">Loading purchases...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+
+         <!-- DESKTOP FOOTER COMPONENT -->
+            <footer class="footer">
+                <p class="footer__text">© 2026 SMMMARIA Panel. All rights reserved.</p>
+                <div class="footer__links">
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </footer>
+        </div>
+
+        <!-- MOBILE BOTTOM NAVIGATION -->
+        <nav class="mobile-nav">
+            <a href="dashboard.html" class="mobile-nav__link">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="services.html" class="mobile-nav__link">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Services</span>
+            </a>
+            <a href="orders.html" class="mobile-nav__link">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4"></path><polyline points="9 11 12 14 15 11"></polyline><line x1="12" y1="2" x2="12" y2="14"></line></svg>
+                <span>Orders</span>
+            </a>
+            <a href="wallet.html" class="mobile-nav__link">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                <span>Wallet</span>
+            </a>
+        </nav>
+
+        <!-- MOBILE OVERLAY -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    </div>
+
+     <!-- Credential Modal -->
+    <div class="modal-overlay" id="credentialModal">
+        <div class="modal" style="max-width: 500px;">
+            <div class="modal__header">
+                <h3 class="modal__title">Account Credentials</h3>
+                <button class="modal__close" id="closeCredentialModal">&times;</button>
+            </div>
+            <div class="modal__body" id="credentialModalBody">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Imports -->
+    <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

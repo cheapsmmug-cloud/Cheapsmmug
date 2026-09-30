@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="_4VcrmvY2S8GSdic0AMrBR1BlTx5-5-dA4GR_ZXe2TU" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found | CHEAPSMMUG</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Keep your core variables and resets -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/buttons.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        /* Clean SaaS 404 Page Styling */
+        body.error-body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F8FAFC; /* Clean off-white background */
+            overflow: hidden;
+            position: relative;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .error-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            max-width: 540px;
+            width: 100%;
+        }
+
+        /* SaaS Card */
+        .error-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            border-radius: 8px; /* Subtle, professional radius */
+            padding: 50px 40px;
+            animation: fadeUp 1s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating Illustration */
+        .error-illustration {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            animation: float 3s ease-in-out infinite;
+            color: #2563EB; /* SaaS Blue */
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Massive Solid 404 Text */
+        .error-code {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(6rem, 20vw, 9rem);
+            font-weight: 800;
+            line-height: 1;
+            margin: 0;
+            color: #2563EB; /* Solid Blue */
+            letter-spacing: -2px;
+        }
+
+        .error-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827; /* Dark text */
+            margin: 10px 0 15px;
+        }
+
+        .error-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #64748B; /* Muted text */
+            max-width: 380px;
+            margin: 0 auto 35px;
+            line-height: 1.6;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Status Pill */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.05);
+            color: #10b981;
+            padding: 6px 16px;
+            border-radius: 4px; /* Sharp edges */
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        .status-pill .dot {
+            width: 8px; height: 8px; background: #10b981; border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 480px) {
+            .error-card {
+                padding: 35px 25px;
+            }
+            .error-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            .error-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body class="error-body">
+    <div class="error-container">
+        <div class="error-card">
+            <!-- Status Pill -->
+            <div class="status-pill">
+                <span class="dot"></span>
+                System Operational
+            </div>
+
+            <!-- Floating Server/SVG Illustration -->
+            <div class="error-illustration">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+            </div>
+
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">Page Not Found</h2>
+            <p class="error-text">
+                The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Let's get you back on track.
+            </p>
+            
+            <div class="error-actions">
+                <a href="dashboard.html" class="btn btn--primary">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    Back to Dashboard
+                </a>
+                <a href="tickets.html" class="btn btn--outline">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    Contact Support
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

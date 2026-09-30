@@ -1,0 +1,26 @@
+# Default rule: Allow all search engines to crawl the site
+User-agent: *
+
+# Block crawling of private/authenticated frontend routes
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /orders/
+Disallow: /wallet/
+Disallow: /profile/
+Disallow: /tickets/
+Disallow: /api/
+
+# Block crawling of backend API endpoint paths (if hosted on the same domain)
+Disallow: /v1/
+Disallow: /auth/
+Disallow: /users/
+Disallow: /services/
+
+# Allow access to public assets (CSS, JS, Images)
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Point to the sitemap
+Sitemap: https://smmaria.site/sitemap.xml

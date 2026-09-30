@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ <!-- Homepage -->
+ <url>
+  <loc>https://smmaria.site/</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>1.0</priority>
+ </url>
+ 
+ <!-- Services / Pricing -->
+ <url>
+  <loc>https://smmaria.site/services.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+ </url>
+ 
+ <!-- API Documentation -->
+ <url>
+  <loc>https://smmaria.site/api.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+ </url>
+ 
+ <!-- Sign Up Page -->
+ <url>
+  <loc>https://smmaria.site/register.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+ </url>
+ 
+ <!-- Login Page -->
+ <url>
+  <loc>https://smmaria.site/login.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+ </url>
+ 
+ <!-- Support / Contact -->
+ <url>
+  <loc>https://smmaria.site/contact.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.6</priority>
+ </url>
+ 
+ <!-- FAQ -->
+ <url>
+  <loc>https://smmaria.site/faq.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+ </url>
+ 
+ <!-- Terms of Service -->
+ <url>
+  <loc>https://smmaria.site/terms.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.3</priority>
+ </url>
+ 
+ <!-- Privacy Policy -->
+ <url>
+  <loc>https://smmaria.site/privacy.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.3</priority>
+ </url>
+</urlset>
