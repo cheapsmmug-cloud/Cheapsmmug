@@ -1,0 +1,205 @@
+/* ===============================================
+   Layout CSS
+   Main app grid, content area, auth layouts
+   =============================================== */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--sidebar-width);
+    transition: margin-left var(--transition-base);
+    min-width: 0; /* Prevents flex overflow */
+}
+
+.app-container.sidebar-collapsed .main-wrapper {
+    margin-left: var(--sidebar-width-collapsed);
+}
+
+.content-area {
+    flex: 1;
+    padding: var(--spacing-xl);
+    background-color: var(--bg-body);
+    transition: background-color var(--transition-base);
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.page-title {
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+}
+
+.breadcrumbs {
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    margin-top: var(--spacing-xs);
+}
+.breadcrumbs a {
+    color: var(--text-secondary);
+}
+.breadcrumbs a:hover {
+    color: var(--color-primary);
+}
+
+/* Footer */
+.footer {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+}
+
+.footer__links {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+.footer__links a:hover {
+    color: var(--color-primary);
+}
+
+/* Auth Layout (Login, Register) - Clean SaaS Style */
+.auth-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f8fafc; /* Light gray-blue background */
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.auth-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 480px;
+}
+
+.auth-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px; /* Sharp, professional corners */
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+html[data-theme="dark"] .auth-card {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+.auth__header { 
+    text-align: center; 
+    margin-bottom: 32px; 
+}
+
+.auth__logo {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #111827; /* Black */
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+.auth__logo span {
+    color: #2563EB; /* Blue */
+}
+
+.auth__title { 
+    color: #111827; 
+    font-size: 1.5rem; 
+    margin-bottom: 4px; 
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth__subtitle { 
+    color: #64748b; 
+    font-size: 0.95rem; 
+}
+
+.auth__form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 18px; 
+}
+
+.auth__divider {
+    display: flex; 
+    align-items: center; 
+    text-align: center;
+    color: #64748b; 
+    margin: 24px 0;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+.auth__divider::before, .auth__divider::after {
+    content: ''; 
+    flex: 1; 
+    border-bottom: 1px solid #e5e7eb;
+}
+.auth__divider span { 
+    padding: 0 12px; 
+    background: #ffffff; 
+    position: relative;
+    z-index: 2;
+}
+
+html[data-theme="dark"] .auth__divider span {
+    background: var(--bg-card);
+}
+
+.auth__footer { 
+    text-align: center; 
+    margin-top: 24px; 
+    color: #64748b; 
+    font-size: 0.9rem; 
+}
+.auth__footer .form-link { 
+    color: #2563EB; /* Blue links */
+    font-weight: 600; 
+}
+
+/* Error 404 Layout */
+.error-body {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    min-height: 100vh; 
+    text-align: center; 
+    background-color: var(--bg-body);
+}
+.error-code { 
+    font-size: 8rem; 
+    font-weight: 700; 
+    line-height: 1; 
+    margin-bottom: var(--spacing-md); 
+}
+.error-title { 
+    font-size: var(--fs-2xl); 
+    margin-bottom: var(--spacing-sm); 
+}
+.error-text { 
+    color: var(--text-muted); 
+    margin-bottom: var(--spacing-xl); 
+}

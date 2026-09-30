@@ -1,0 +1,315 @@
+/* ===============================================
+   BUY ACCOUNT MARKETPLACE STYLES
+   =============================================== */
+
+.marketplace-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+/* CATEGORIES GRID */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.category-card {
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+}
+
+.category-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-gold);
+}
+
+.category-card__icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: var(--color-primary);
+}
+
+.category-card__name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.category-card__count {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* FILTERS SIDEBAR */
+.marketplace-filters {
+    padding: 24px;
+    height: fit-content;
+}
+
+.marketplace-filters h3 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.filter-group {
+    margin-bottom: 16px;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+}
+
+/* ACCOUNTS GRID */
+.accounts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.account-card {
+    padding: 24px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.account-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.account-card__platform {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+.account-card__username {
+    font-size: 14px;
+    color: var(--color-gold);
+    word-break: break-all;
+}
+
+.account-card__specs {
+    list-style: none;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 12px 0;
+}
+
+.account-card__specs li {
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.account-card__specs strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.account-card__footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 16px;
+}
+
+.account-card__price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* STOCK BADGES */
+.stock-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.stock-badge--in {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.stock-badge--low {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+.stock-badge--out {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+/* PURCHASE MODAL */
+.purchase-info {
+    background-color: var(--bg-body);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.purchase-info__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.purchase-info__row--highlight {
+    font-weight: 600;
+    color: var(--color-primary);
+    border-top: 1px solid var(--border-color);
+    padding-top: 8px;
+    margin-top: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .marketplace-layout {
+        grid-template-columns: 1fr;
+    }
+    .marketplace-filters {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .accounts-grid {
+        grid-template-columns: 1fr;
+    }
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} 
+/* ===============================================
+   PROMOTIONAL & ADVERTISEMENT CARDS
+   =============================================== */
+
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.promo-card {
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: linear-gradient(145deg, var(--bg-card), var(--bg-body));
+    border: 1px solid var(--border-color);
+}
+
+.promo-card--accent {
+    border-left: 4px solid var(--color-gold);
+}
+
+.promo-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.promo-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.promo-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.country-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.country-tags span {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* PayPal Card Specifics */
+.paypal-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.paypal-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.paypal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .paypal-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .paypal-content {
+        align-items: center;
+    }
+}
+
+/* Make Category Cards Look Clickable */
+.category-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-gold);
+}
+
+.category-card.is-active {
+    border: 2px solid var(--color-gold);
+    background-color: rgba(255, 215, 0, 0.05);
+}

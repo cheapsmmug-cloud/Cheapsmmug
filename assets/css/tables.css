@@ -1,0 +1,512 @@
+/* ===============================================
+   Tables CSS
+   =============================================== */
+
+.table-card { padding: 24px; }
+
+.table-filters {
+    display: flex;
+    gap: 12px;
+}
+.form-input--sm { 
+    padding: 6px 12px; 
+    font-size: 0.85rem; 
+    border-radius: 4px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 8px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table {
+    width: 100%;
+    font-size: 0.9rem;
+    border-collapse: collapse;
+}
+
+.table thead th {
+    background-color: var(--bg-input, #f8fafc);
+    color: var(--text-muted, #64748b);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.75rem;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+    white-space: nowrap;
+}
+
+.table tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color-light, #f1f5f9);
+    color: var(--text-primary, #111827);
+    vertical-align: middle;
+}
+.table tbody tr:last-child td { border-bottom: none; }
+.table tbody tr:hover { 
+    background-color: var(--bg-hover, #f8fafc); 
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 4px; /* Sharp SaaS badges */
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: capitalize;
+}
+.badge--success { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.badge--warning { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.badge--danger { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.badge--info { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+
+/* Notification badge in sidebar */
+.sidebar__link .badge {
+    margin-left: auto;
+    background: #ef4444;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100px;
+    height: 6px;
+    background-color: var(--bg-input, #f1f5f9);
+    border-radius: 4px; /* Sharp edges */
+    overflow: hidden;
+}
+.progress-bar__fill {
+    height: 100%;
+    background: #2563eb; /* Solid Blue */
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+}
+.pagination .btn { 
+    min-width: 36px; 
+    padding: 8px 12px; 
+    border-radius: 4px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+    margin-bottom: 20px;
+}
+.tab {
+    padding: 10px 16px;
+    font-weight: 600;
+    color: var(--text-muted, #64748b);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+.tab:hover { color: var(--text-primary, #111827); }
+.tab.active { 
+    color: #2563eb; /* Blue active tab */
+    border-color: #2563eb; 
+}
+
+.tabs--vertical {
+    flex-direction: column;
+    border-bottom: none;
+    border-right: 1px solid var(--border-color, #e5e7eb);
+    min-width: 200px;
+}
+.tabs--vertical .tab { 
+    border-bottom: none; 
+    border-right: 2px solid transparent; 
+    text-align: left; 
+}
+.tabs--vertical .tab.active { 
+    border-right-color: #2563eb; 
+}
+
+/* ===============================================
+   Service ID & UGX Currency Utility Styles
+   =============================================== */
+
+/* --- Service ID Input Box (Services Page Cards) --- */
+.service-id-input {
+    width: 65px;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary, #111827);
+    background: var(--bg-input, #f8fafc);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 4px; /* Sharp edges */
+    text-align: center;
+    cursor: default; /* Shows it's read-only */
+    transition: border-color 0.2s ease;
+}
+
+/* Optional: subtle highlight if user clicks it */
+.service-id-input:focus {
+    outline: none;
+    border-color: #2563eb; /* Blue focus */
+}
+
+/* --- Clickable Service ID Link (Orders Page Table) --- */
+.service-id-link {
+    font-weight: 600;
+    color: #2563eb; /* Blue link */
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.service-id-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* --- UGX Currency Text (Tables & Cards) --- */
+/* Used in Orders table, Wallet table, and Services cards */
+.charge-ugx,
+.rate-value-ugx {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary, #64748b);
+    margin-top: 2px;
+    letter-spacing: 0.2px;
+}
+
+/* Specific styling for the New Order live calculator UGX text */
+#charge-amount-ugx {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary, #64748b);
+    margin-top: 4px;
+    text-align: right;
+}
+
+/* --- UGX Amount on Dashboard Stat Cards --- */
+.ugx-amount {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary, #64748b);
+    margin-bottom: 8px; /* Pushes the "All time" text down slightly */
+}
+/* ===============================================
+   CURRENT ACTIVE ORDERS SECTION
+   =============================================== */
+
+.active-orders-section {
+    margin-bottom: 32px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text, #111827);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Active Orders Grid */
+.current-orders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+}
+
+/* Empty State */
+.empty-state-box {
+    grid-column: 1 / -1;
+    background: var(--card, #ffffff);
+    border: 1px dashed var(--border, #e5e7eb);
+    border-radius: 4px;
+    padding: 40px;
+    text-align: center;
+    color: var(--muted, #64748b);
+}
+
+.empty-state-box svg {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 12px;
+    stroke: var(--muted, #64748b);
+}
+
+.empty-state-box h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: var(--text, #111827);
+}
+
+.empty-state-box p {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Active Order Card */
+.co-card {
+    background: var(--card, #ffffff);
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 4px; /* Sharp rectangular */
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.2s ease;
+}
+
+.co-card:hover {
+    border-color: var(--blue, #2563eb);
+}
+
+.co-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    border-bottom: 1px solid var(--border, #e5e7eb);
+    padding-bottom: 12px;
+}
+
+.co-header-left h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: var(--text, #111827);
+}
+
+.co-order-id {
+    font-size: 12px;
+    color: var(--muted, #64748b);
+}
+
+.co-status {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.co-status--processing { background: rgba(37, 99, 235, 0.1); color: var(--blue, #2563eb); }
+.co-status--pending { background: rgba(245, 158, 11, 0.1); color: var(--warning, #f59e0b); }
+.co-status--partial { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+.co-status--completed { background: rgba(16, 185, 129, 0.1); color: var(--success, #10b981); }
+
+.co-link {
+    font-size: 12px;
+    color: var(--blue, #2563eb);
+    text-decoration: none;
+    background: var(--bg, #f8fafc);
+    border: 1px solid var(--border, #e5e7eb);
+    padding: 6px 8px;
+    border-radius: 2px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Progress Bar */
+.co-progress-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.co-progress-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text, #111827);
+}
+
+.co-progress-top span:last-child {
+    color: var(--muted, #64748b);
+}
+
+.co-progress-bar-bg {
+    width: 100%;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.co-progress-bar-fill {
+    height: 100%;
+    background: var(--blue, #2563eb);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* Stats Grid inside Card */
+.co-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    background: var(--bg, #f8fafc);
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 2px;
+    padding: 8px;
+}
+
+.co-stat-item {
+    text-align: center;
+    border-right: 1px solid var(--border, #e5e7eb);
+}
+
+.co-stat-item:last-child {
+    border-right: none;
+}
+
+.co-stat-label {
+    display: block;
+    font-size: 10px;
+    color: var(--muted, #64748b);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.co-stat-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text, #111827);
+}
+
+/* Card Footer & Refill UI */
+.co-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border, #e5e7eb);
+}
+
+.co-charge {
+    display: flex;
+    flex-direction: column;
+}
+
+.co-charge-label {
+    font-size: 10px;
+    color: var(--muted, #64748b);
+    text-transform: uppercase;
+}
+
+.co-charge-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text, #111827);
+}
+
+.refill-ui {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.refill-graphic {
+    width: 28px;
+    height: 28px;
+    background: var(--bg, #f8fafc);
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted, #64748b);
+}
+
+.refill-graphic svg {
+    width: 14px;
+    height: 14px;
+}
+
+.refill-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.refill-label {
+    font-size: 9px;
+    color: var(--muted, #64748b);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.refill-countdown {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--warning, #f59e0b);
+}
+
+.refill-countdown.ready {
+    color: var(--success, #10b981);
+}
+
+/* Refill Button inside Active Order Card */
+.co-footer .btn--primary {
+    background: var(--blue, #2563eb) !important;
+    color: #fff !important;
+    border: 1px solid var(--blue, #2563eb) !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    border-radius: 2px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.co-footer .btn--primary:hover {
+    background: var(--blue-hover, #1d4ed8) !important;
+    border-color: var(--blue-hover, #1d4ed8) !important;
+}
+
+.co-footer .btn--primary:disabled {
+    background: #e5e7eb !important;
+    border-color: #e5e7eb !important;
+    color: #9ca3af !important;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments for active order cards */
+@media (max-width: 768px) {
+    .current-orders-grid {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+}

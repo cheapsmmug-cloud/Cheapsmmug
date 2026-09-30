@@ -1,0 +1,1133 @@
+/* ===============================================
+   Navbar CSS (Clean SaaS Floating Header)
+   =============================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.navbar {
+    height: 72px;
+    background-color: #ffffff; /* Solid white background */
+    border: 1px solid #e5e7eb; /* Clean light border */
+    border-radius: 0; /* Sharp edges as requested */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Good strong shadow */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    z-index: 900;
+    gap: 16px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    animation: slideDownNavbar 0.5s ease-out forwards;
+}
+
+/* Desktop: Sticky inside the main-wrapper so it doesn't overlap the sidebar */
+@media (min-width: 769px) {
+    .navbar {
+        position: sticky;
+        top: 20px;
+        margin-bottom: 24px; /* Space between header and page content */
+    }
+}
+
+/* Scroll Animation State (Triggered by adding .is-scrolled via JS) */
+.navbar.is-scrolled {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-color: rgba(37, 99, 235, 0.2); /* Subtle blue border hint when scrolled */
+}
+
+@keyframes slideDownNavbar {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar__left, .navbar__right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0; /* Prevents flex children from overflowing */
+}
+
+.navbar__toggle {
+    display: none; /* Hidden on desktop, shown on mobile */
+    color: #111827;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.navbar__search {
+    position: relative;
+    flex: 1; /* Allows search bar to shrink and grow */
+    max-width: 300px;
+    width: 100%;
+}
+.navbar__search svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+}
+.navbar__search-input {
+    width: 100%;
+    padding: 8px 12px 8px 36px;
+    background-color: #f8fafc;
+    border: 1px solid transparent;
+    border-radius: 0; /* Sharp edges */
+    transition: all 0.2s ease;
+    min-width: 0; 
+    font-family: 'Inter', sans-serif;
+    color: #111827;
+}
+.navbar__search-input:focus {
+    background-color: #ffffff;
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.navbar__balance {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 4px 16px;
+    border-radius: 0; /* Sharp edges */
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap; /* Prevents text wrapping */
+    border: 1px solid #dbeafe;
+}
+
+.navbar__icon-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0; /* Sharp edges */
+    color: #64748b;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0; /* Prevents icons from squishing */
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid transparent;
+}
+.navbar__icon-btn:hover {
+    background-color: #f8fafc;
+    color: #2563eb;
+    border-color: #e5e7eb;
+}
+
+.badge--dot {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: #dc2626;
+    border-radius: 50%; /* Dot remains round for visual indicator */
+    border: 2px solid #ffffff;
+}
+
+.navbar__profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 0; /* Sharp edges */
+    cursor: pointer;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+    border: 1px solid transparent;
+}
+.navbar__profile:hover { 
+    background-color: #f8fafc; 
+    border-color: #e5e7eb;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 0; /* Sharp edges */
+    background: #2563eb;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.profile__info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+.profile__name { font-weight: 600; font-size: 0.9rem; color: #111827; }
+.profile__role { font-size: 0.75rem; color: #64748b; }
+
+/* ===============================================
+   Mobile Responsiveness for Navbar
+   =============================================== */
+@media (max-width: 768px) {
+    .navbar {
+        /* Mobile: Fixed floating header across the screen */
+        position: fixed;
+        top: max(12px, env(safe-area-inset-top)); /* Added gap and iOS safe area support */
+        left: 10px;
+        right: 10px;
+        padding: 0 16px; /* Tighter padding on mobile */
+        gap: 8px;
+    }
+    
+    .navbar__left, .navbar__right {
+        gap: 8px; /* Tighter gap between icons on mobile */
+    }
+    
+    /* Show the hamburger menu on mobile */
+    .navbar__toggle {
+        display: flex;
+    }
+    
+    /* Hide the search bar on mobile to save space */
+    .navbar__search {
+        display: none;
+    }
+    
+    /* Hide the user's name and role, keep only the avatar */
+    .profile__info {
+        display: none;
+    }
+    
+    .navbar__balance {
+        font-size: 0.75rem; /* Slightly smaller balance text on mobile */
+        padding: 4px 8px;
+    }
+    
+    .navbar__icon-btn {
+        width: 36px; /* Slightly smaller icons on mobile */
+        height: 36px;
+    }
+}
+
+/* ===============================================
+   Sidebar Widgets — append to navbar.css
+   =============================================== */
+
+/* ── Widget Container ── */
+.sidebar__widgets {
+    padding: 16px;
+    border-top: 1px solid #e5e7eb;
+    margin-top: auto;
+}
+
+.sidebar__widget {
+    margin-bottom: 20px;
+}
+
+.sidebar__widget:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar__widget-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+/* ── Account Balance Widget ── */
+.widget-balance {
+    text-align: center;
+    padding: 16px 12px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 0; /* Sharp edges */
+}
+
+.widget-balance__amount {
+    display: block;
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #2563eb;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+
+.widget-balance__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 22px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    background: #2563eb;
+    border: none;
+    border-radius: 0; /* Sharp edges */
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+.widget-balance__btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+.widget-balance__btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+.widget-balance__btn svg {
+    width: 13px;
+    height: 13px;
+}
+
+/* ── Statistics Widget ── */
+.widget-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.widget-stat {
+    padding: 10px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 0; /* Sharp edges */
+    text-align: center;
+}
+
+.widget-stat__label {
+    display: block;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.widget-stat__value {
+    display: block;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.2;
+}
+
+.widget-stat__value--accent {
+    color: #2563eb;
+}
+
+/* ── Service Status Widget ── */
+.widget-services {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.widget-service {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 0; /* Sharp edges */
+    transition: background 0.15s;
+}
+
+.widget-service:hover {
+    background: #f8fafc;
+}
+
+.widget-service__name {
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+    flex: 1;
+    white-space: nowrap;
+}
+
+.widget-service__status {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0.3px;
+}
+
+/* Status dot */
+.widget-service__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Online */
+[data-status="online"] .widget-service__dot,
+.widget-service__dot--online {
+    background: #16a34a;
+    box-shadow: 0 0 6px rgba(22, 163, 74, 0.45);
+}
+
+[data-status="online"] .widget-service__status {
+    color: #16a34a;
+}
+
+/* Delayed */
+[data-status="delayed"] .widget-service__dot,
+.widget-service__dot--delayed {
+    background: #d97706;
+    box-shadow: 0 0 6px rgba(217, 119, 6, 0.45);
+}
+
+[data-status="delayed"] .widget-service__status {
+    color: #d97706;
+}
+
+/* Offline */
+[data-status="offline"] .widget-service__dot,
+.widget-service__dot--offline {
+    background: #dc2626;
+    box-shadow: 0 0 6px rgba(220, 38, 38, 0.45);
+}
+
+[data-status="offline"] .widget-service__status {
+    color: #dc2626;
+}
+
+/* Pulse animation for online dots */
+[data-status="online"] .widget-service__dot::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1px solid rgba(22, 163, 74, 0.35);
+    animation: widgetDotPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes widgetDotPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ── Help & Support Widget ── */
+.widget-help {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.widget-help__btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 0; /* Sharp edges */
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    width: 100%;
+    text-align: left;
+}
+
+.widget-help__btn:hover {
+    background: #ffffff;
+    border-color: #d1d5db;
+    color: #111827;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.widget-help__btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: #64748b;
+    transition: color 0.2s;
+}
+
+.widget-help__btn:hover svg {
+    color: #2563eb;
+}
+
+/* Live Chat — blue accent */
+.widget-help__btn--chat:hover {
+    border-color: rgba(37, 99, 235, 0.4);
+    background: rgba(37, 99, 235, 0.05);
+    color: #2563eb;
+}
+
+.widget-help__btn--chat:hover svg {
+    color: #2563eb;
+}
+
+/* Open Ticket — amber accent */
+.widget-help__btn--ticket:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(217, 119, 6, 0.05);
+    color: #d97706;
+}
+
+.widget-help__btn--ticket:hover svg {
+    color: #d97706;
+}
+
+/* WhatsApp help button — green accent */
+.widget-help__btn--whatsapp:hover {
+    border-color: rgba(22, 163, 74, 0.4);
+    background: rgba(22, 163, 74, 0.05);
+    color: #16a34a;
+}
+
+.widget-help__btn--whatsapp:hover svg {
+    color: #16a34a;
+}
+
+/* ── Community Links Widget ── */
+.widget-community {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 4px 0;
+}
+
+.widget-community__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 0; /* Sharp edges */
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    color: #64748b;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.widget-community__link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.widget-community__link svg {
+    width: 18px;
+    height: 18px;
+    transition: color 0.2s;
+}
+
+/* Telegram hover accent */
+[data-community="telegram"]:hover {
+    border-color: rgba(0, 136, 204, 0.5);
+    background: rgba(0, 136, 204, 0.1);
+    color: #0088cc;
+}
+
+/* WhatsApp hover accent */
+[data-community="whatsapp"]:hover {
+    border-color: rgba(22, 163, 74, 0.5);
+    background: rgba(22, 163, 74, 0.1);
+    color: #16a34a;
+}
+
+/* Discord hover accent */
+[data-community="discord"]:hover {
+    border-color: rgba(88, 101, 242, 0.5);
+    background: rgba(88, 101, 242, 0.1);
+    color: #5865f2;
+}
+
+/* ── Status indicator (generic, used by JS) ── */
+[data-status-indicator] {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+[data-status-indicator][data-status="online"] {
+    background: #16a34a;
+    box-shadow: 0 0 6px rgba(22, 163, 74, 0.45);
+}
+
+[data-status-indicator][data-status="delayed"] {
+    background: #d97706;
+    box-shadow: 0 0 6px rgba(217, 119, 6, 0.45);
+}
+
+[data-status-indicator][data-status="offline"] {
+    background: #dc2626;
+    box-shadow: 0 0 6px rgba(220, 38, 38, 0.45);
+}
+
+/* ── Sidebar Collapsed State ── */
+.sidebar--collapsed .sidebar__widgets {
+    display: none;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .sidebar__widgets {
+        padding: 12px;
+    }
+
+    .widget-balance__amount {
+        font-size: 20px;
+    }
+
+    .widget-stat__value {
+        font-size: 14px;
+    }
+
+    .widget-help__btn {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .widget-community__link {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* ===============================================
+   Widget Label Icons
+   =============================================== */
+
+.widget-label__icon {
+    display: none;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: #64748b;
+}
+
+/* ── Collapsed Sidebar: show only icons ── */
+.sidebar--collapsed .sidebar__widgets {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 8px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.sidebar--collapsed .sidebar__widget {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.sidebar--collapsed .sidebar__widget-label {
+    display: none;
+}
+
+.sidebar--collapsed .widget-balance,
+.sidebar--collapsed .widget-stats,
+.sidebar--collapsed .widget-services,
+.sidebar--collapsed .widget-help,
+.sidebar--collapsed .widget-community {
+    display: none;
+}
+
+.sidebar--collapsed [data-widget-section] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 0; /* Sharp edges */
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    cursor: default;
+    position: relative;
+    transition: all 0.15s;
+}
+
+.sidebar--collapsed [data-widget-section]:hover {
+    background: #ffffff;
+    border-color: #2563eb;
+}
+
+.sidebar--collapsed .widget-label__icon {
+    display: block;
+    width: 18px;
+    height: 18px;
+    color: #64748b;
+    transition: color 0.15s;
+}
+
+.sidebar--collapsed [data-widget-section]:hover .widget-label__icon {
+    color: #2563eb;
+}
+
+/* ── Collapsed: Service Status icon shows aggregate dot ── */
+.sidebar--collapsed [data-widget-section="services"]::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #16a34a;
+    box-shadow: 0 0 4px rgba(22, 163, 74, 0.5);
+}
+
+.sidebar--collapsed [data-widget-section="services"][data-has-offline="true"]::after {
+    background: #dc2626;
+    box-shadow: 0 0 4px rgba(220, 38, 38, 0.5);
+}
+
+.sidebar--collapsed [data-widget-section="services"][data-has-delayed="true"]:not([data-has-offline="true"])::after {
+    background: #d97706;
+    box-shadow: 0 0 4px rgba(217, 119, 6, 0.5);
+}
+
+/* ── Collapsed: Tooltip on hover ── */
+.sidebar--collapsed [data-widget-section]::before {
+    content: attr(data-widget-section-label);
+    position: absolute;
+    left: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    background: #ffffff;
+    color: #111827;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 0; /* Sharp edges */
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s, transform 0.15s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border: 1px solid #e5e7eb;
+    z-index: 100;
+}
+
+.sidebar--collapsed [data-widget-section]:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+/* Tooltip labels */
+.sidebar--collapsed [data-widget-section="balance"]::before    { content: 'Account Balance'; }
+.sidebar--collapsed [data-widget-section="statistics"]::before  { content: 'Statistics'; }
+.sidebar--collapsed [data-widget-section="services"]::before   { content: 'Service Status'; }
+.sidebar--collapsed [data-widget-section="help"]::before       { content: 'Help & Support'; }
+.sidebar--collapsed [data-widget-section="community"]::before  { content: 'Community'; }
+
+/* ── Mobile: keep normal behavior ── */
+@media (max-width: 768px) {
+    .sidebar--collapsed .sidebar__widgets {
+        display: none;
+    }
+} 
+
+/* ===============================================
+   Currency Changer Widget
+   =============================================== */
+
+.widget-currency {
+    position: relative;
+}
+
+.widget-currency__selected {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 0; /* Sharp edges */
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left;
+    color: #111827;
+}
+
+.widget-currency__selected:hover {
+    border-color: #2563eb;
+    background: #ffffff;
+}
+
+.widget-currency__flag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 26px;
+    padding: 0 8px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 0; /* Sharp edges */
+    letter-spacing: 0.3px;
+    line-height: 1;
+}
+
+.widget-currency__code {
+    flex: 1;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.widget-currency__chevron {
+    color: #64748b;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+
+.widget-currency__selected[aria-expanded="true"] .widget-currency__chevron {
+    transform: rotate(180deg);
+}
+
+/* ── Dropdown ── */
+.widget-currency__dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0; /* Sharp edges */
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+    z-index: 200;
+    display: none;
+    overflow: hidden;
+}
+
+.widget-currency__dropdown--open {
+    display: block;
+    animation: currencyDropIn 0.2s ease-out forwards;
+}
+
+@keyframes currencyDropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ── Search ── */
+.widget-currency__search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.widget-currency__search svg {
+    color: #64748b;
+    flex-shrink: 0;
+}
+
+.widget-currency__search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    color: #111827;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.widget-currency__search-input::placeholder {
+    color: #94a3b8;
+}
+
+/* ── List ── */
+.widget-currency__list {
+    max-height: 220px;
+    overflow-y: auto;
+    padding: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+
+.widget-currency__list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.widget-currency__list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.widget-currency__list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.widget-currency__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 0; /* Sharp edges */
+    cursor: pointer;
+    transition: background 0.12s;
+    border: none;
+    background: transparent;
+    width: 100%;
+    text-align: left;
+    color: #64748b;
+    font-family: 'Inter', sans-serif;
+}
+
+.widget-currency__item:hover {
+    background: #f8fafc;
+    color: #111827;
+}
+
+.widget-currency__item--active {
+    background: rgba(37, 99, 235, 0.08);
+    color: #2563eb;
+}
+
+.widget-currency__item--active:hover {
+    background: rgba(37, 99, 235, 0.12);
+}
+
+.widget-currency__item-flag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 22px;
+    padding: 0 6px;
+    background: #f1f5f9;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 0; /* Sharp edges */
+    letter-spacing: 0.2px;
+    flex-shrink: 0;
+}
+
+.widget-currency__item--active .widget-currency__item-flag {
+    background: #2563eb;
+    color: #fff;
+}
+
+.widget-currency__item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.widget-currency__item-code {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.widget-currency__item-name {
+    display: block;
+    font-size: 10px;
+    color: #94a3b8;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.widget-currency__item-check {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    opacity: 0;
+    color: #2563eb;
+}
+
+.widget-currency__item--active .widget-currency__item-check {
+    opacity: 1;
+}
+
+.widget-currency__empty {
+    padding: 20px 12px;
+    text-align: center;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* ── Collapsed state ── */
+.sidebar--collapsed [data-widget-section="currency"] {
+    position: relative;
+}
+
+.sidebar--collapsed [data-widget-section="currency"]::before {
+    content: 'Currency';
+}
+
+.sidebar--collapsed .widget-currency {
+    display: none;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .widget-currency__dropdown {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0; /* Sharp edges */
+        max-height: 60vh;
+    }
+
+    .widget-currency__dropdown--open {
+        animation: currencySlideUp 0.25s ease-out forwards;
+    }
+
+    @keyframes currencySlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .widget-currency__list {
+        max-height: 45vh;
+    }
+}
+
+/* ==========================================
+   CHEAPSMMUG ADS SLIDE-UP CARD
+   ========================================== */
+.ads-bottom-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.ads-bottom-sheet.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto !important; /* Allows clicking when open */
+}
+
+.ads-sheet-content {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 0; /* Sharp edges */
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 15px 20px 80px 20px; /* Added bottom padding so it doesn't cover nav */
+    border-top: 4px solid #2563eb;
+}
+
+.ads-bottom-sheet.active .ads-sheet-content {
+    transform: translateX(-50%) translateY(0);
+}
+
+.ads-sheet-handle {
+    width: 40px;
+    height: 5px;
+    background: #d1d5db;
+    border-radius: 5px;
+    margin: 0 auto 15px;
+    cursor: pointer;
+}
+
+.ads-sheet-header {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'Manrope', sans-serif;
+}
+
+.ads-sheet-body {
+    text-align: center;
+}
+
+.ads-sheet-body p {
+    color: #64748b;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.ads-sheet-body h3 {
+    color: #2563eb;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 5px 0 10px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.ads-sheet-subtitle {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.ads-continue-btn {
+    width: 100%;
+    padding: 14px;
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 0; /* Sharp edges */
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+.ads-continue-btn:hover {
+    background: #1d4ed8;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}

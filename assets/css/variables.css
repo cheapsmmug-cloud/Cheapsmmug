@@ -1,0 +1,174 @@
+/* ===============================================
+   Variables CSS
+   Global design tokens and theming (Light/Dark)
+   =============================================== */
+
+:root {
+    /* Brand Colors */
+    --color-navy: #08164A;
+    --color-navy-light: #1a265c;
+    --color-navy-dark: #050f30;
+    --color-gold: #F5A623;
+    --color-gold-dark: #d68d10;
+    --color-gold-light: #fff4e0;
+
+    /* Status Colors */
+    --color-success: #22C55E;
+    --color-success-bg: rgba(34, 197, 94, 0.1);
+    --color-warning: #F59E0B;
+    --color-warning-bg: rgba(245, 158, 11, 0.1);
+    --color-danger: #EF4444;
+    --color-danger-bg: rgba(239, 68, 68, 0.1);
+    --color-info: #3B82F6;
+    --color-info-bg: rgba(59, 130, 246, 0.1);
+
+    /* Light Theme (Default) */
+    --bg-body: #F5F7FA;
+    --bg-card: #FFFFFF;
+    --bg-sidebar: #FFFFFF;
+    --bg-navbar: #FFFFFF;
+    --bg-input: #F9FAFB;
+    --bg-hover: #F3F4F6;
+
+    --text-primary: #1F2937;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --text-inverse: #FFFFFF;
+
+    --border-color: #E5E7EB;
+    --border-color-light: #F3F4F6;
+
+    /* Typography */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Poppins', system-ui, -apple-system, sans-serif;
+    
+    --fs-xs: 0.75rem;    /* 12px */
+    --fs-sm: 0.875rem;   /* 14px */
+    --fs-base: 1rem;     /* 16px */
+    --fs-lg: 1.125rem;   /* 18px */
+    --fs-xl: 1.25rem;    /* 20px */
+    --fs-2xl: 1.5rem;    /* 24px */
+    --fs-3xl: 1.875rem;  /* 30px */
+    --fs-4xl: 2.25rem;   /* 36px */
+
+    /* Spacing & Layout */
+    --sidebar-width: 260px;
+    --sidebar-width-collapsed: 80px;
+    --navbar-height: 70px;
+    --content-max-width: 1400px;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+
+    /* Radii */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-gold: 0 4px 14px 0 rgba(245, 166, 35, 0.3);
+
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme Overrides */
+html[data-theme="dark"] {
+    --bg-body: #0f172a; /* Deep slate/navy tint */
+    --bg-card: #1e293b;
+    --bg-sidebar: #1e293b;
+    --bg-navbar: #1e293b;
+    --bg-input: #334155;
+    --bg-hover: #334155;
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-inverse: #1F2937;
+
+    --border-color: #334155;
+    --border-color-light: #334155;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+/* ===============================================
+   Service ID & UGX Currency Utility Styles
+   =============================================== */
+
+/* --- Service ID Input Box (Services Page Cards) --- */
+.service-id-input {
+    width: 65px;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--bg-input, #f8f9fa);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: var(--radius-sm, 6px);
+    text-align: center;
+    cursor: default; /* Shows it's read-only */
+    transition: border-color 0.2s ease;
+}
+
+/* Optional: subtle highlight if user clicks it */
+.service-id-input:focus {
+    outline: none;
+    border-color: var(--color-gold, #f5a623);
+}
+
+/* --- Clickable Service ID Link (Orders Page Table) --- */
+.service-id-link {
+    font-weight: 600;
+    color: var(--color-gold, #f5a623);
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.service-id-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* --- UGX Currency Text (Tables & Cards) --- */
+/* Used in Orders table, Wallet table, and Services cards */
+.charge-ugx,
+.rate-value-ugx {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary, #6b7280);
+    margin-top: 2px;
+    letter-spacing: 0.2px;
+}
+
+/* Specific styling for the New Order live calculator UGX text */
+#charge-amount-ugx {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary, #6b7280);
+    margin-top: 4px;
+    text-align: right;
+}
+
+/* --- UGX Amount on Dashboard Stat Cards --- */
+.ugx-amount {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary, #6b7280);
+    margin-bottom: 8px; /* Pushes the "All time" text down slightly */
+}

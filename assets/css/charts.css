@@ -1,0 +1,44 @@
+/* ===============================================
+   Charts & Skeletons CSS
+   =============================================== */
+
+.chart-card {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-placeholder {
+    height: 300px;
+    margin-top: var(--spacing-lg);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+/* Skeleton Loading Animation */
+.skeleton-loader {
+    background: linear-gradient(90deg, var(--bg-hover) 25%, var(--bg-input) 50%, var(--bg-hover) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: var(--radius-md);
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Simple CSS Bar Chart Mockup */
+.chart-bar {
+    flex: 1;
+    background: linear-gradient(180deg, var(--color-gold), var(--color-navy));
+    border-radius: 4px 4px 0 0;
+    opacity: 0.8;
+    transition: height 0.5s ease;
+}
+.chart-bar:hover {
+    opacity: 1;
+}

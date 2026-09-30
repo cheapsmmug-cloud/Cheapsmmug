@@ -1,0 +1,25 @@
+/* ===============================================
+   Light Theme Overrides
+   =============================================== */
+
+html[data-theme="light"] {
+ --bg-body: #F5F7FA;
+ --bg-card: #FFFFFF;
+ --bg-navbar: #FFFFFF;
+ --bg-input: #F9FAFB;
+ --bg-hover: #F3F4F6;
+ 
+ --text-primary: #1F2937;
+ --text-secondary: #4B5563;
+ --text-muted: #9CA3AF;
+ --text-inverse: #FFFFFF;
+ 
+ --border-color: #E5E7EB;
+ --border-color-light: #F3F4F6;
+ 
+ /* Admin sidebar stays dark navy even in light mode */
+ --bg-sidebar: #08164A;
+ --sidebar-text: rgba(255, 255, 255, 0.7);
+ --sidebar-text-active: #FFFFFF;
+ --sidebar-hover: rgba(255, 255, 255, 0.05);
+}

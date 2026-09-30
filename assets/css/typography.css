@@ -1,0 +1,250 @@
+/* ===============================================
+   TYPOGRAPHY CSS — PREMIUM FINTECH UI
+   =============================================== */
+
+/* -----------------------------------------------
+   1. BASE TYPOGRAPHY
+   ----------------------------------------------- */
+body {
+    font-family: var(--font-sans);
+    font-size: var(--fs-base);
+    color: var(--text-primary);
+    background-color: var(--bg-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* -----------------------------------------------
+   2. HEADINGS
+   ----------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-primary);
+    text-wrap: balance;
+}
+
+/* Fluid Responsive Headings */
+h1 { font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem); } /* 24px - 36px */
+h2 { font-size: clamp(1.25rem, 1.5vw + 0.875rem, 1.75rem); } /* 20px - 28px */
+h3 { font-size: clamp(1.125rem, 1vw + 0.75rem, 1.375rem); } /* 18px - 22px */
+h4 { font-size: clamp(1rem, 0.75vw + 0.625rem, 1.125rem); } /* 16px - 18px */
+h5 { font-size: 0.9375rem; } /* 15px */
+h6 { font-size: 0.875rem; } /* 14px */
+
+/* -----------------------------------------------
+   3. PARAGRAPHS
+   ----------------------------------------------- */
+p {
+    line-height: 1.6;
+    text-wrap: pretty;
+}
+
+/* -----------------------------------------------
+   4. FONT SIZES (Existing + Contextual)
+   ----------------------------------------------- */
+.text-xs { font-size: var(--fs-xs); }
+.text-sm { font-size: var(--fs-sm); }
+.text-base { font-size: var(--fs-base); }
+.text-lg { font-size: var(--fs-lg); }
+.text-xl { font-size: var(--fs-xl); }
+.text-2xl { font-size: var(--fs-2xl); }
+.text-3xl { font-size: var(--fs-3xl); }
+
+.text-display {
+    font-size: clamp(2rem, 3vw + 1rem, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+.text-page-title {
+    font-size: clamp(1.125rem, 1vw + 0.875rem, 1.5rem);
+    font-weight: 600;
+}
+.text-section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* -----------------------------------------------
+   5. FONT WEIGHTS
+   ----------------------------------------------- */
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* -----------------------------------------------
+   6. TEXT COLORS
+   ----------------------------------------------- */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-navy { color: var(--color-navy); }
+.text-gold { color: var(--color-gold); }
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-danger { color: var(--color-danger); }
+.text-info { color: var(--color-info); }
+.text-inverse { color: var(--text-inverse); }
+
+/* -----------------------------------------------
+   7. ALIGNMENT
+   ----------------------------------------------- */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* -----------------------------------------------
+   8. LINKS
+   ----------------------------------------------- */
+.text-link {
+    color: var(--color-info);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+.text-link:hover {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+html[data-theme="dark"] .text-link:hover {
+    color: var(--color-gold);
+}
+.text-link:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* -----------------------------------------------
+   9. TEXT TRANSFORMATIONS
+   ----------------------------------------------- */
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+/* -----------------------------------------------
+   10. LINE HEIGHT
+   ----------------------------------------------- */
+.leading-tight { line-height: 1.2; }
+.leading-normal { line-height: 1.5; }
+.leading-relaxed { line-height: 1.625; }
+
+/* -----------------------------------------------
+   11. LETTER SPACING
+   ----------------------------------------------- */
+.tracking-tight { letter-spacing: -0.015em; }
+.tracking-normal { letter-spacing: 0; }
+.tracking-wide { letter-spacing: 0.025em; }
+
+/* -----------------------------------------------
+   12. WRAPPING & 13. TRUNCATION & LONG CONTENT
+   ----------------------------------------------- */
+.text-nowrap { white-space: nowrap; }
+.text-wrap { white-space: normal; }
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+.break-word { overflow-wrap: break-word; word-break: break-word; }
+.break-all { word-break: break-all; }
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.text-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.text-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* -----------------------------------------------
+   14. FINANCIAL NUMBERS
+   ----------------------------------------------- */
+.tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.01em;
+}
+
+/* -----------------------------------------------
+   15. LABELS & METADATA
+   ----------------------------------------------- */
+.text-label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+.text-caption {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+.text-overline {
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* -----------------------------------------------
+   16. RESPONSIVE TYPOGRAPHY (Tablet/Mobile Base)
+   ----------------------------------------------- */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Solid mobile base */
+    }
+    h1 { font-size: 1.5rem; } /* 24px */
+    h2 { font-size: 1.25rem; } /* 20px */
+    h3 { font-size: 1.125rem; } /* 18px */
+    
+    /* Prevent excessive tracking on small screens */
+    .text-display {
+        letter-spacing: -0.025em;
+    }
+}
+
+/* -----------------------------------------------
+   17. VERY SMALL SCREENS (<360px)
+   ----------------------------------------------- */
+@media (max-width: 360px) {
+    body {
+        font-size: 13.5px; /* Slight reduction for tiny screens */
+    }
+    h1 { font-size: 1.375rem; } /* 22px */
+    h2 { font-size: 1.125rem; } /* 18px */
+    
+    /* Keep financial numbers legible but prevent overflow */
+    .tabular-nums {
+        letter-spacing: -0.02em;
+    }
+}
+
+/* -----------------------------------------------
+   18. ACCESSIBILITY
+   ----------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    body, .text-link {
+        transition: none !important;
+    }
+}

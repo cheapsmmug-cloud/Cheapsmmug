@@ -1,0 +1,69 @@
+/* ===============================================
+   Badges & Status Indicators CSS
+   =============================================== */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    line-height: 1;
+    text-transform: capitalize;
+}
+
+.badge--success { background: var(--color-success-bg); color: var(--color-success); }
+.badge--warning { background: var(--color-warning-bg); color: var(--color-warning); }
+.badge--danger { background: var(--color-danger-bg); color: var(--color-danger); }
+.badge--info { background: var(--color-info-bg); color: var(--color-info); }
+
+/* Notification badge in sidebar */
+.sidebar__link .badge {
+    margin-left: auto;
+    background: var(--color-danger);
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+}
+
+/* Notification dot in navbar */
+.badge--dot {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-danger);
+    border-radius: 50%;
+    border: 2px solid var(--bg-navbar);
+}
+
+/* System Status Indicator (Navbar) */
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--bg-input);
+    border-radius: var(--radius-full);
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.status-dot--success { 
+    background: var(--color-success); 
+    box-shadow: 0 0 0 3px var(--color-success-bg);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
