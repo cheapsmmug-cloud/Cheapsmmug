@@ -5,16 +5,16 @@
          1. BASIC META & MOBILE VIEWPORT
          ========================================== -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
-    <title>WALLET | Cheapsmmug Panel</title>
+    <title> WALLET | Cheapsmmug Panel</title>
     
     <!-- ==========================================
          2. SEO METADATA
          ========================================== -->
-    <meta name="description" content="Manage your Cheapsmmug Panel wallet, deposit funds securely, and view your transaction history.">
-    <meta name="keywords" content="Cheapsmmug Wallet, SMM Panel Deposit, Add Funds, Transaction History, Cheapsmmug Panel">
+    <meta name="description" content="Cheapsmmug is a premium global SMM panel and social media marketing management platform. We provide automated SaaS solutions, seamless API integration, instant order processing, and affordable growth services.">
+    <meta name="keywords" content="SMM Panel, Social Media Marketing, Cheapsmmug, Best SMM Panel, Cheap SMM Panel, SaaS Platform, Social Media Growth, API Integration, Automated Marketing, Instagram Followers, TikTok Views, YouTube Subscribers, Facebook Likes, SEO Services, Digital Marketing Platform, SMM Reseller Panel, Social Media Management, Increase Twitter Followers, Twitch Viewers">
     <meta name="author" content="Cheapsmmug">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://cheapsmmug.netlify.app/wallet">
@@ -52,16 +52,16 @@
          ========================================== -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Cheapsmmug">
-    <meta property="og:title" content="Wallet | Cheapsmmug Panel">
-    <meta property="og:description" content="Manage your Cheapsmmug Panel wallet, deposit funds securely, and view your transaction history.">
+    <meta property="og:title" content="Cheapsmmug | SMM Platform">
+    <meta property="og:description" content="Access the professional SMM platform. Log in or get started instantly to automate your social media marketing.">
     <meta property="og:image" content="assets/images/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://cheapsmmug.netlify.app/wallet">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Wallet | Cheapsmmug Panel">
-    <meta name="twitter:description" content="Manage your Cheapsmmug Panel wallet, deposit funds securely, and view your transaction history.">
+    <meta name="twitter:title" content="Cheapsmmug | SMM Platform">
+    <meta name="twitter:description" content="Access the professional SMM platform. Log in or get started instantly to automate your social media marketing.">
     <meta name="twitter:image" content="assets/images/og-image.png">
     
     <!-- ==========================================
@@ -89,6 +89,7 @@
     <link rel="stylesheet" href="assets/css/dashboard.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     
+
     <style>
         /* ===============================================
            WALLET PAGE - ENTERPRISE SAAS STYLING
@@ -128,11 +129,6 @@
             font-weight: 700;
             color: var(--text);
             margin: 0;
-        }
-        .page-subtitle {
-            font-size: 14px;
-            color: var(--muted);
-            margin-top: 4px;
         }
         .breadcrumbs {
             font-size: 13px;
@@ -350,11 +346,6 @@
         }
 
         /* Payment Method Tiles */
-        .payment-methods-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 12px;
-        }
         .payment-tile {
             cursor: pointer;
             border: 1px solid var(--border);
@@ -372,6 +363,10 @@
         .payment-tile:hover {
             border-color: var(--blue);
             transform: translateY(-1px);
+        }
+        [data-theme="dark"] .payment-tile {
+            border-color: var(--border);
+            background: var(--card);
         }
         .payment-tile.active {
             border-color: var(--blue) !important;
@@ -440,12 +435,6 @@
         }
 
         /* Info Cards */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 24px;
-        }
         .info-card {
             display: flex;
             flex-direction: column;
@@ -672,16 +661,7 @@
             
             <div class="sidebar__widgets">
                 <div class="sidebar__widget">
-                    <span class="sidebar__widget-label">Account Balance</span>
-                    <div class="widget-balance" data-widget="balance">
-                        <span class="widget-balance__amount" data-widget="balance-value">$0.00</span>
-                        <a href="wallet.html" class="widget-balance__btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg>
-                            Add Funds
-                        </a>
-                    </div>
-                </div>
-
+                  
                 <div class="sidebar__widget" data-widget-section="currency">
                     <span class="sidebar__widget-label">
                         <svg class="widget-label__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
@@ -779,11 +759,11 @@
                         <svg class="widget-label__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                         Help & Support
                     </span>
-                    <div class="widget-help">
-                        <a href="support.html" class="widget-help__btn widget-help__btn--chat">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                            Live Chat
-                        </a>
+                <div class="widget-help">
+                     <a href="support.html" class="widget-help__btn widget-help__btn--chat">
+                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                         Live Chat
+                    </a>
                         <button class="widget-help__btn widget-help__btn--ticket" data-widget="open-ticket">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                             Open Ticket
@@ -808,7 +788,7 @@
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
                         </a>
                         <a href="#" class="widget-community__link" data-community="discord" title="Discord">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0743.0743 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -861,162 +841,202 @@
                 </div>
             </header>
 
-            <!-- PAGE SPECIFIC CONTENT -->
-            <main class="content-area" id="page-content">
-                <div class="page-header">
-                    <div>
-                        <h1 class="page-title">Wallet</h1>
-                        <p class="page-subtitle">Manage your balance, deposits and transaction activity.</p>
-                    </div>
-                    <div class="breadcrumbs"><a href="dashboard.html">Dashboard</a> / <span>Wallet</span></div>
-                </div>
+<!-- PAGE SPECIFIC CONTENT -->
+<main class="content-area" id="page-content">
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">Wallet</h1>
+            <p class="page-subtitle" style="font-size: 14px; color: var(--muted); margin-top: 4px;">Manage your balance, deposits and transaction activity.</p>
+        </div>
+        <div class="breadcrumbs"><a href="dashboard.html">Dashboard</a> / <span>Wallet</span></div>
+    </div>
 
-                <!-- Wallet Overview Grid -->
-                <div class="wallet-grid">
-                    <!-- Balance Card -->
-                    <div class="card balance-card">
-                        <span class="balance-card__label">Available Balance</span>
-                        <h2 class="balance-card__amount">$0.00</h2>
-                        <p class="balance-card__sub">Your current wallet balance</p>
-                        <a href="#deposit-section" class="btn btn--primary">+ Add Funds</a>
-                    </div>
+    <!-- Wallet Balance & Transactions (Flexbox for perfect responsive stacking) -->
+    <div class="wallet-grid">
+        <!-- Balance Card -->
+        <div class="card balance-card" style="flex: 1 1 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 30px;">
+            <h3 class="balance-card__label">Available Balance</h3>
+            <p class="balance-card__amount" style="font-size: 2.5rem; font-weight: 800; color: var(--text); margin: 10px 0;" data-widget="balance-value">0.00</p>
+            <p class="balance-card__sub">Your current wallet balance</p>
+            <a href="#deposit-section" class="btn btn--primary btn--block">+ Add Funds</a>
+        </div>
+        
+        <!-- Transactions Card -->
+        <div class="card transactions-card" style="flex: 3 1 500px; padding: 20px; overflow: hidden;">
+            <div class="card__header" style="padding: 0; margin-bottom: 15px; border-bottom: 1px solid var(--border); background: transparent;">
+                <h3 class="card__title">Transaction History</h3>
+            </div>
+            <!-- Table Responsive wrapper ensures horizontal scroll on small screens -->
+            <div class="table-responsive" style="overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%;">
+                <table class="table" style="width: 100%; min-width: 500px;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be injected by modules/wallet.js -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- INLINE DEPOSIT SECTION -->
+    <div class="card" id="deposit-section" style="margin-top: 24px; scroll-margin-top: 100px; padding: 24px;">
+        <div class="card__header" style="padding: 0; margin-bottom: 20px; border-bottom: 1px solid var(--border); background: transparent;">
+            <h3 class="card__title">Add Funds</h3>
+        </div>
+        <form id="deposit-form" class="card__body" style="display: grid; gap: 20px; padding: 0;">
+            
+            <!-- Payment Method Selection -->
+            <div class="form-group">
+                <label class="form-label">1. Select Payment Method</label>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
                     
-                    <!-- Transactions Card -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h3 class="card__title">Transaction History</h3>
+                    <label class="payment-tile">
+                        <input type="radio" name="payment-method" value="mtn" required style="display: none;">
+                        <img src="https://ik.imagekit.io/s95tumxuk/IMG_5004.png" alt="MTN" style="height: 24px; width: auto; object-fit: contain; margin-bottom: 5px;">
+                        <div style="font-weight: 600; font-size: 14px;">MTN Mobile Money</div>
+                    </label>
+                    
+                    <label class="payment-tile">
+                        <input type="radio" name="payment-method" value="airtel" required style="display: none;">
+                        <img src="https://ik.imagekit.io/s95tumxuk/IMG_5003.jpeg" alt="Airtel" style="height: 24px; width: auto; object-fit: contain; margin-bottom: 5px;">
+                        <div style="font-weight: 600; font-size: 14px;">Airtel Money</div>
+                    </label>
+                    
+                    <label class="payment-tile">
+                        <input type="radio" name="payment-method" value="card" required style="display: none;">
+                        <div style="display: flex; gap: 5px; align-items: center; justify-content: center; margin-bottom: 5px;">
+                            <img src="https://ik.imagekit.io/s95tumxuk/IMG_5005.png" alt="Visa" style="height: 20px; width: auto; object-fit: contain;">
+                            <img src="https://ik.imagekit.io/s95tumxuk/IMG_5005.png" alt="Mastercard" style="height: 20px; width: auto; object-fit: contain;">
                         </div>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Type</th>
-                                        <th>Amount</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Data will be injected by modules/wallet.js -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                        <div style="font-weight: 600; font-size: 14px;">Visa / Mastercard</div>
+                    </label>
+                    
+                                        <label class="payment-tile" onclick="document.getElementById('countryCheckModal').classList.add('active'); document.getElementById('countryCheckModal').style.display='flex';" style="cursor: pointer;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="height: 24px; width: 24px; margin-bottom: 5px; color: var(--blue);"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        <div style="font-weight: 600; font-size: 14px;">Other Methods</div>
+                    </label>
+
+                   
                 </div>
+            </div>
 
-                <!-- Deposit Section -->
-                <div class="card" id="deposit-section" style="scroll-margin-top: 100px;">
-                    <div class="card__header">
-                        <h3 class="card__title">Add Funds</h3>
-                    </div>
-                    <div class="card__body">
-                        <form id="deposit-form">
-                            
-                            <!-- Payment Method Selection -->
-                            <div class="form-group">
-                                <label class="form-label">Payment Method</label>
-                                <div class="payment-methods-grid">
-                                    <label class="payment-tile">
-                                        <input type="radio" name="payment-method" value="mtn" required style="display: none;">
-                                        <img src="https://ik.imagekit.io/s95tumxuk/IMG_5004.png" alt="MTN">
-                                        <div>MTN Mobile Money</div>
-                                    </label>
-                                    
-                                    <label class="payment-tile">
-                                        <input type="radio" name="payment-method" value="airtel" required style="display: none;">
-                                        <img src="https://ik.imagekit.io/s95tumxuk/IMG_5003.jpeg" alt="Airtel">
-                                        <div>Airtel Money</div>
-                                    </label>
-                                    
-                                    <label class="payment-tile">
-                                        <input type="radio" name="payment-method" value="card" required style="display: none;">
-                                        <img src="https://ik.imagekit.io/s95tumxuk/IMG_5005.png" alt="Visa/Mastercard">
-                                        <div>Visa / Mastercard</div>
-                                    </label>
-                                    
-                                    <label class="payment-tile" onclick="document.getElementById('countryCheckModal').classList.add('active'); document.getElementById('countryCheckModal').style.display='flex';">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="height: 24px; width: 24px; color: var(--blue);"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                        <div>Other Methods</div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <!-- Amount Input -->
-                            <div class="form-group">
-                               <label class="form-label">Deposit Amount <span style="font-size: 12px; color: var(--muted); font-weight: 400;">(Min 1.00)</span></label>
-                                <input type="number" id="deposit-amount" class="form-input" placeholder="10.00" min="1" step="0.01" required>
-                                <div id="bonus-info" class="bonus-text">
-                                    Bonus: +$0.00 <span class="bonus-amount">Total Credited: $0.00</span>
-                                </div>
-                            </div>
-
-                            <!-- Dynamic Input Fields -->
-                            <div id="mtn-fields" class="dynamic-fields" style="display: none;">
-                                <div class="form-group">
-                                    <label class="form-label">MTN Phone Number</label>
-                                    <input type="tel" id="mtn-phone" class="form-input" placeholder="e.g., 07XXXXXXXX">
-                                </div>
-                            </div>
-
-                            <div id="airtel-fields" class="dynamic-fields" style="display: none;">
-                                <div class="form-group">
-                                    <label class="form-label">Airtel Phone Number</label>
-                                    <input type="tel" id="airtel-phone" class="form-input" placeholder="e.g., 07XXXXXXXX">
-                                </div>
-                            </div>
-
-                            <div id="manual-fields" class="dynamic-fields" style="display: none;">
-                                <div class="manual-instructions">
-                                    <h4>Manual Payment Instructions</h4>
-                                    <ol>
-                                        <li>Send the exact deposit amount to our MoMo number: <strong>0770 898 186</strong>.</li>
-                                        <li>Take a clear screenshot of the payment confirmation message.</li>
-                                        <li>Click the WhatsApp button below to send the screenshot to our admin with your deposit amount.</li>
-                                        <li>Wait for the admin to verify and credit your Cheapsmmug wallet (usually takes a few minutes).</li>
-                                    </ol>
-                                    <a href="#" id="manual-whatsapp-btn" target="_blank" class="btn btn--success" style="background-color: #25D366; color: white; border: none; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;">
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                                        Send Receipt on WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn btn--primary" style="margin-top: 16px;">Process Deposit</button>
-                        </form>
-                    </div>
+            <!-- Amount Input -->
+            <div class="form-group">
+               <label class="form-label">2. Enter Amount <span style="font-size: 12px; opacity: 0.7;">(Min 1.00)</span></label>
+                <input type="number" id="deposit-amount" class="form-input" placeholder="10.00" min="1" step="0.01" required>
+                <div id="bonus-info" class="bonus-text">
+                    Bonus: +$0.00 <span class="bonus-amount">Total Credited: $0.00</span>
                 </div>
+            </div>
 
-                <!-- Info & Support Cards -->
-                <div class="info-grid">
-                    <div class="card info-card">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                        <h4>Instant Deposits</h4>
-                        <p>MTN, Airtel, and Card payments are credited to your wallet automatically within seconds.</p>
-                    </div>
-                    <div class="card info-card">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
-                        <h4>Multiple Methods</h4>
-                        <p>We support Mobile Money, Visa/Mastercard, and manual uploads for your convenience.</p>
-                    </div>
-                    <div class="card info-card">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                        <h4>Minimum Deposit</h4>
-                        <p>Start small! The minimum deposit amount is just $1.00, and you get a $0.05 bonus every time.</p>
-                    </div>
-                    <div class="card info-card">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                        <h4>Need Help?</h4>
-                        <p style="margin-bottom: 15px;">If you face any issues depositing funds, our support team is available on WhatsApp 24/7.</p>
-                        <a href="https://wa.me/256770898186" target="_blank" class="btn btn--outline" style="width: 100%;">
-                            Chat on WhatsApp
-                        </a>
-                    </div>
+            <!-- Dynamic Input Fields Based on Selection -->
+            <div id="mtn-fields" class="dynamic-fields" style="display: none;">
+                <div class="form-group">
+                    <label class="form-label">MTN Phone Number</label>
+                    <input type="tel" id="mtn-phone" class="form-input" placeholder="e.g., 07XXXXXXXX">
                 </div>
+            </div>
 
-            </main>
+            <div id="airtel-fields" class="dynamic-fields" style="display: none;">
+                <div class="form-group">
+                    <label class="form-label">Airtel Phone Number</label>
+                    <input type="tel" id="airtel-phone" class="form-input" placeholder="e.g., 07XXXXXXXX">
+                </div>
+            </div>
 
-            <!-- DESKTOP FOOTER COMPONENT -->
+            <div id="manual-fields" class="dynamic-fields" style="display: none;">
+                <div class="manual-instructions">
+                    <h4>How to Pay Manually</h4>
+                    <ol>
+                        <li>Send the exact deposit amount to our MoMo number: <strong>0770 898 186</strong>.</li>
+                        <li>Take a clear screenshot of the payment confirmation message.</li>
+                        <li>Click the WhatsApp button below to send the screenshot to our admin with your deposit amount.</li>
+                        <li>Wait for the admin to verify and credit your Cheapsmmug wallet (usually takes a few minutes).</li>
+                    </ol>
+                    <a href="#" id="manual-whatsapp-btn" target="_blank" class="btn btn--success btn--block" style="background-color: #25D366; color: white; border: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                        Send Receipt on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+               <button type="submit" class="btn btn--primary btn--block">Process Deposit</button>
+        </form>
+    </div> 
+
+  <!-- CARD PAYMENT BOTTOM SHEET (MarzPay Integration) -->
+<div class="modal-overlay" id="cardPaymentSheet" style="display: none; align-items: flex-end; z-index: 2000;">
+    <div class="modal" style="max-width: 100%; width: 100%; border-radius: 4px 4px 0 0; margin-bottom: 0; max-height: 85vh; overflow-y: auto; animation: slideUp 0.3s ease-out forwards; z-index: 2001;">
+        <div class="modal__header" style="justify-content: center; flex-direction: column; text-align: center; padding-top: 25px; border-bottom: none; background: #fff;">
+            <h3 class="modal__title">Cheapsmmug Panel</h3>
+            <p class="text-muted" style="font-size: 14px; margin-top: 5px;">Add Funds with Card</p>
+            <p class="text-muted" style="font-size: 12px; margin-top: 2px;">Pay securely with your Visa or Mastercard.</p>
+        </div>
+        <div class="modal__body" style="padding: 20px 25px 30px 25px;">
+            <div class="card-sheet-summary">
+                <span class="text-muted" style="font-weight: 500;">Amount to Pay:</span>
+                <strong id="cardSheetAmount" style="font-size: 20px; color: var(--text); font-family: 'Poppins', sans-serif;">$0.00</strong>
+            </div>
+            
+            <!-- CARD LOGOS (Visa/Mastercard + 2 Extra Logos) -->
+            <div class="card-logos">
+                <img src="https://ik.imagekit.io/s95tumxuk/IMG_5005.png" alt="Visa/Mastercard" style="height: 30px; width: auto;">
+                <img src="https://ik.imagekit.io/s95tumxuk/IMG_5020.png" alt="visa" style="height: 30px; width: auto;">
+                <img src="https://ik.imagekit.io/s95tumxuk/IMG_5022.jpeg" alt="Logo 2" style="height: 30px; width: auto;">
+            </div>
+
+            <div class="security-notice">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                Secured by MarzPay Gateway. We do not store your card details.
+            </div>
+
+            <button id="confirmCardPayBtn" class="btn btn--primary btn--block" style="padding: 14px; font-size: 16px;">
+                Continue to Secure Checkout
+            </button>
+            <button class="btn btn--outline btn--block" id="cancelCardPayBtn" style="margin-top: 10px;">Cancel</button>
+        </div>
+    </div>
+</div>
+
+    <!-- INFO & SUPPORT CARDS -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 24px;">
+        <div class="card info-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <h4 style="margin-bottom: 8px; font-weight: 600;">Instant Deposits</h4>
+            <p class="text-muted" style="font-size: 14px;">MTN, Airtel, and Card payments are credited to your wallet automatically within seconds.</p>
+        </div>
+        <div class="card info-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            <h4 style="margin-bottom: 8px; font-weight: 600;">Multiple Methods</h4>
+            <p class="text-muted" style="font-size: 14px;">We support Mobile Money, Visa/Mastercard, and manual uploads for your convenience.</p>
+        </div>
+        <div class="card info-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <h4 style="margin-bottom: 8px; font-weight: 600;">Minimum Deposit</h4>
+            <p class="text-muted" style="font-size: 14px;">Start small! The minimum deposit amount is just $1.00, and you get a $0.05 bonus every time.</p>
+        </div>
+        <div class="card info-card" style="border: 1px solid rgba(37, 211, 102, 0.3);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <h4 style="margin-bottom: 8px; font-weight: 600;">Need Help?</h4>
+            <p class="text-muted" style="font-size: 14px; margin-bottom: 15px;">If you face any issues depositing funds, our support team is available on WhatsApp 24/7.</p>
+            <a href="https://wa.me/256770898186" target="_blank" class="btn btn--success" style="background-color: #25D366; color: white; border: none; width: 100%;">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="margin-right: 8px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                Chat on WhatsApp
+            </a>
+        </div>
+    </div>
+
+</main>
+
+               <!-- DESKTOP FOOTER COMPONENT -->
             <footer class="footer">
                 <p class="footer__text">© 2026 Cheapsmmug Panel. All rights reserved.</p>
                 <div class="footer__links">
@@ -1050,148 +1070,114 @@
         <!-- MOBILE OVERLAY -->
         <div class="sidebar-overlay" id="sidebar-overlay"></div>
     </div>
-
-    <!-- CARD PAYMENT BOTTOM SHEET (MarzPay Integration) -->
-    <div class="modal-overlay" id="cardPaymentSheet" style="display: none; align-items: flex-end; z-index: 2000;">
-        <div class="modal" style="max-width: 100%; width: 100%; border-radius: 4px 4px 0 0; margin-bottom: 0; max-height: 85vh; overflow-y: auto; animation: slideUp 0.3s ease-out forwards; z-index: 2001;">
-            <div class="modal__header" style="justify-content: center; flex-direction: column; text-align: center; padding-top: 25px; border-bottom: none;">
-                <h3 class="modal__title">Cheapsmmug Panel</h3>
-                <p class="text-muted" style="font-size: 14px; margin-top: 5px;">Add Funds with Card</p>
-                <p class="text-muted" style="font-size: 12px; margin-top: 2px;">Pay securely with your Visa or Mastercard.</p>
-            </div>
-            <div class="modal__body" style="padding: 20px 25px 30px 25px;">
-                <div class="card-sheet-summary">
-                    <span class="text-muted">Amount to Pay:</span>
-                    <strong id="cardSheetAmount">$0.00</strong>
-                </div>
-                
-                <div class="card-logos">
-                    <img src="https://ik.imagekit.io/s95tumxuk/IMG_5005.png" alt="Visa/Mastercard" style="height: 30px; width: auto;">
-                    <img src="https://ik.imagekit.io/s95tumxuk/IMG_5020.png" alt="visa" style="height: 30px; width: auto;">
-                    <img src="https://ik.imagekit.io/s95tumxuk/IMG_5022.jpeg" alt="Logo 2" style="height: 30px; width: auto;">
-                </div>
-
-                <div class="security-notice">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    Secured by MarzPay Gateway. We do not store your card details.
-                </div>
-
-                <button id="confirmCardPayBtn" class="btn btn--primary" style="padding: 14px; font-size: 16px; width: 100%;">
-                    Continue to Secure Checkout
-                </button>
-                <button class="btn btn--outline" id="cancelCardPayBtn" style="margin-top: 10px; width: 100%;">Cancel</button>
+<!-- PAYMENT METHODS MODAL -->
+<div class="modal-overlay" id="countryCheckModal" style="display: none; z-index: 2000;">
+    <div class="modal" style="max-width: 500px; width: 100%; height: 80vh; display: flex; flex-direction: column;">
+        <div class="modal__header">
+            <h3 class="modal__title">Supported Payment Methods</h3>
+            <button class="modal__close" onclick="document.getElementById('countryCheckModal').classList.remove('active'); document.getElementById('countryCheckModal').style.display='none';">&times;</button>
+        </div>
+        <div class="modal__body" style="flex: 1; display: flex; flex-direction: column; overflow: hidden; padding: 20px;">
+            <input type="text" id="countrySearchInput" class="form-input" placeholder="🔍 Search payment methods..." style="margin-bottom: 15px;">
+            <div id="countryListContainer" style="flex: 1; overflow-y: auto; border: 1px solid var(--border); border-radius: 4px; padding: 10px;">
+                <!-- Payment methods will be injected here by JS -->
             </div>
         </div>
     </div>
+</div>
 
-    <!-- PAYMENT METHODS MODAL -->
-    <div class="modal-overlay" id="countryCheckModal" style="display: none; z-index: 2000;">
-        <div class="modal" style="max-width: 500px; width: 100%; height: 80vh; display: flex; flex-direction: column;">
-            <div class="modal__header">
-                <h3 class="modal__title">Supported Payment Methods</h3>
-                <button class="modal__close" onclick="document.getElementById('countryCheckModal').classList.remove('active'); document.getElementById('countryCheckModal').style.display='none';">&times;</button>
-            </div>
-            <div class="modal__body" style="flex: 1; display: flex; flex-direction: column; overflow: hidden; padding: 20px;">
-                <input type="text" id="countrySearchInput" class="form-input" placeholder="Search payment methods...">
-                <div id="countryListContainer" style="flex: 1; overflow-y: auto; border: 1px solid var(--border); border-radius: 4px; padding: 8px; margin-top: 15px;">
-                    <!-- Payment methods will be injected here by JS -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Script to populate and search payment methods -->
-    <script>
-        // List of global payment methods. 
-        // 'status: active' means it's currently integrated. 'status: coming_soon' means it's pending API integration.
-        const allPaymentMethods = [
-            { name: "MTN Mobile Money", region: "Uganda/Africa", status: "active", methodId: "mtn", icon: "📱" },
-            { name: "Airtel Money", region: "Uganda/Africa", status: "active", methodId: "airtel", icon: "📱" },
-            { name: "Visa / Mastercard", region: "Global", status: "active", methodId: "card", icon: "💳" },
-            
-            // --- Coming Soon ---
-            { name: "PayPal", region: "Global", status: "coming_soon", methodId: "paypal", icon: "🅿️" },
-            { name: "Bitcoin (BTC)", region: "Crypto", status: "coming_soon", methodId: "btc", icon: "₿" },
-            { name: "Ethereum (ETH)", region: "Crypto", status: "coming_soon", methodId: "eth", icon: "Ξ" },
-            { name: "USDT (TRC20)", region: "Crypto", status: "coming_soon", methodId: "usdt_trc20", icon: "₮" },
-            { name: "M-Pesa", region: "Kenya/Tanzania", status: "coming_soon", methodId: "mpesa", icon: "📱" },
-            { name: "MoMo", region: "Ghana/Cameroon", status: "coming_soon", methodId: "momo", icon: "📱" },
-            { name: "Apple Pay", region: "Global", status: "coming_soon", methodId: "apple_pay", icon: "🍎" },
-            { name: "Google Pay", region: "Global", status: "coming_soon", methodId: "google_pay", icon: "🇬" },
-            { name: "Skrill", region: "Global", status: "coming_soon", methodId: "skrill", icon: " 💳" },
-            { name: "Neteller", region: "Global", status: "coming_soon", methodId: "neteller", icon: " 💳" },
-            { name: "Alipay", region: "China", status: "coming_soon", methodId: "alipay", icon: "🇨🇳" },
-            { name: "WeChat Pay", region: "China", status: "coming_soon", methodId: "wechat", icon: "🇨🇳" },
-            { name: "UPI", region: "India", status: "coming_soon", methodId: "upi", icon: "🇮🇳" },
-            { name: "Pix", region: "Brazil", status: "coming_soon", methodId: "pix", icon: "🇧🇷" },
-            { name: "OXXO", region: "Mexico", status: "coming_soon", methodId: "oxxo", icon: "🇲🇽" },
-            { name: "SEPA Bank Transfer", region: "Europe", status: "coming_soon", methodId: "sepa", icon: "🏦" },
-            { name: "iDEAL", region: "Netherlands", status: "coming_soon", methodId: "ideal", icon: "🇳🇱" },
-            { name: "Sofort", region: "Germany", status: "coming_soon", methodId: "sofort", icon: "🇩🇪" },
-            { name: "GCash", region: "Philippines", status: "coming_soon", methodId: "gcash", icon: "🇵🇭" }
-        ];
+<!-- Script to populate and search payment methods -->
+<script>
+    // List of global payment methods. 
+    // 'status: active' means it's currently integrated. 'status: coming_soon' means it's pending API integration.
+    const allPaymentMethods = [
+        { name: "MTN Mobile Money", region: "Uganda/Africa", status: "active", methodId: "mtn", icon: "📱" },
+        { name: "Airtel Money", region: "Uganda/Africa", status: "active", methodId: "airtel", icon: "📱" },
+        { name: "Visa / Mastercard", region: "Global", status: "active", methodId: "card", icon: "💳" },
         
-        const paymentListContainer = document.getElementById('countryListContainer');
-        const paymentSearchInput = document.getElementById('countrySearchInput');
-        
-        // Sort methods alphabetically
-        allPaymentMethods.sort((a, b) => a.name.localeCompare(b.name));
-        
-        // Function to render the list
-        function renderPaymentMethods(methods) {
-            if (methods.length === 0) {
-                paymentListContainer.innerHTML = '<p style="text-align: center; color: var(--text-muted); padding: 20px;">Payment method not found.</p>';
-                return;
-            }
-            
-            paymentListContainer.innerHTML = methods.map(method => {
-                const badgeClass = method.status === 'active' ? 'badge--success' : 'badge--warning';
-                const badgeText = method.status === 'active' ? 'Active' : 'Coming Soon';
-                const iconHtml = method.icon ? `<span style="font-size: 18px; margin-right: 10px;">${method.icon}</span>` : '';
-                
-                return `<div data-method-id="${method.methodId}" data-status="${method.status}" style="padding: 12px 10px; border-bottom: 1px solid var(--border); color: var(--text); font-weight: 500; font-size: 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: background 0.2s;">
-                            <div style="display: flex; align-items: center; gap: 5px;">
-                                ${iconHtml}
-                                <div>
-                                    <div>${method.name}</div>
-                                    <small style="font-size: 11px; color: var(--text-muted);">${method.region}</small>
-                                </div>
-                            </div>
-                            <span class="badge ${badgeClass}" style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;">${badgeText}</span>
-                        </div>`;
-            }).join('');
-            
-            // Attach click listeners to "Coming Soon" items
-            document.querySelectorAll('#countryListContainer > div').forEach(item => {
-                item.addEventListener('click', (e) => {
-                    const status = e.currentTarget.getAttribute('data-status');
-                    const methodId = e.currentTarget.getAttribute('data-method-id');
-                    const methodName = e.currentTarget.querySelector('div > div > div').innerText;
-                    
-                    if (status === 'coming_soon') {
-                        showToast(`${methodName} is coming soon! We are working to add this payment method.`, 'info');
-                    } else {
-                        // In the future, you can hook this up to your wallet.js 
-                        // e.g., selectPaymentMethod(methodId)
-                        showToast(`${methodName} is already available in the deposit section below!`, 'success');
-                    }
-                });
-            });
+        // --- Coming Soon ---
+        { name: "PayPal", region: "Global", status: "coming_soon", methodId: "paypal", icon: "🅿️" },
+        { name: "Bitcoin (BTC)", region: "Crypto", status: "coming_soon", methodId: "btc", icon: "₿" },
+        { name: "Ethereum (ETH)", region: "Crypto", status: "coming_soon", methodId: "eth", icon: "Ξ" },
+        { name: "USDT (TRC20)", region: "Crypto", status: "coming_soon", methodId: "usdt_trc20", icon: "₮" },
+        { name: "M-Pesa", region: "Kenya/Tanzania", status: "coming_soon", methodId: "mpesa", icon: "📱" },
+        { name: "MoMo", region: "Ghana/Cameroon", status: "coming_soon", methodId: "momo", icon: "📱" },
+        { name: "Apple Pay", region: "Global", status: "coming_soon", methodId: "apple_pay", icon: "🍎" },
+        { name: "Google Pay", region: "Global", status: "coming_soon", methodId: "google_pay", icon: "🇬" },
+        { name: "Skrill", region: "Global", status: "coming_soon", methodId: "skrill", icon: " 💳" },
+        { name: "Neteller", region: "Global", status: "coming_soon", methodId: "neteller", icon: " 💳" },
+        { name: "Alipay", region: "China", status: "coming_soon", methodId: "alipay", icon: "🇨🇳" },
+        { name: "WeChat Pay", region: "China", status: "coming_soon", methodId: "wechat", icon: "🇨🇳" },
+        { name: "UPI", region: "India", status: "coming_soon", methodId: "upi", icon: "🇮🇳" },
+        { name: "Pix", region: "Brazil", status: "coming_soon", methodId: "pix", icon: "🇧🇷" },
+        { name: "OXXO", region: "Mexico", status: "coming_soon", methodId: "oxxo", icon: "🇲🇽" },
+        { name: "SEPA Bank Transfer", region: "Europe", status: "coming_soon", methodId: "sepa", icon: "🏦" },
+        { name: "iDEAL", region: "Netherlands", status: "coming_soon", methodId: "ideal", icon: "🇳🇱" },
+        { name: "Sofort", region: "Germany", status: "coming_soon", methodId: "sofort", icon: "🇩🇪" },
+        { name: "GCash", region: "Philippines", status: "coming_soon", methodId: "gcash", icon: "🇵🇭" }
+    ];
+    
+    const paymentListContainer = document.getElementById('countryListContainer');
+    const paymentSearchInput = document.getElementById('countrySearchInput');
+    
+    // Sort methods alphabetically
+    allPaymentMethods.sort((a, b) => a.name.localeCompare(b.name));
+    
+    // Function to render the list
+    function renderPaymentMethods(methods) {
+        if (methods.length === 0) {
+            paymentListContainer.innerHTML = '<p style="text-align: center; color: var(--text-muted); padding: 20px;">Payment method not found.</p>';
+            return;
         }
         
-        // Initial render
-        renderPaymentMethods(allPaymentMethods);
+        paymentListContainer.innerHTML = methods.map(method => {
+            const badgeClass = method.status === 'active' ? 'badge--success' : 'badge--warning';
+            const badgeText = method.status === 'active' ? 'Active' : 'Coming Soon';
+            const iconHtml = method.icon ? `<span style="font-size: 18px; margin-right: 10px;">${method.icon}</span>` : '';
+            
+            return `<div data-method-id="${method.methodId}" data-status="${method.status}" style="padding: 12px 10px; border-bottom: 1px solid var(--border); color: var(--text); font-weight: 500; font-size: 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: background 0.2s;">
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            ${iconHtml}
+                            <div>
+                                <div>${method.name}</div>
+                                <small style="font-size: 11px; color: var(--text-muted);">${method.region}</small>
+                            </div>
+                        </div>
+                        <span class="badge ${badgeClass}" style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;">${badgeText}</span>
+                    </div>`;
+        }).join('');
         
-        // Search functionality
-        paymentSearchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const filtered = allPaymentMethods.filter(method =>
-                method.name.toLowerCase().includes(searchTerm) ||
-                method.region.toLowerCase().includes(searchTerm)
-            );
-            renderPaymentMethods(filtered);
+        // Attach click listeners to "Coming Soon" items
+        document.querySelectorAll('#countryListContainer > div').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const status = e.currentTarget.getAttribute('data-status');
+                const methodId = e.currentTarget.getAttribute('data-method-id');
+                const methodName = e.currentTarget.querySelector('div > div > div').innerText;
+                
+                if (status === 'coming_soon') {
+                    showToast(`${methodName} is coming soon! We are working to add this payment method.`, 'info');
+                } else {
+                    // In the future, you can hook this up to your wallet.js 
+                    // e.g., selectPaymentMethod(methodId)
+                    showToast(`${methodName} is already available in the deposit section below!`, 'success');
+                }
+            });
         });
-    </script>
+    }
+    
+    // Initial render
+    renderPaymentMethods(allPaymentMethods);
+    
+    // Search functionality
+    paymentSearchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const filtered = allPaymentMethods.filter(method =>
+            method.name.toLowerCase().includes(searchTerm) ||
+            method.region.toLowerCase().includes(searchTerm)
+        );
+        renderPaymentMethods(filtered);
+    });
+</script>
 
     <!-- JS Imports -->
     <script type="module" src="assets/js/app.js"></script>
