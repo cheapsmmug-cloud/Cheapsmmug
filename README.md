@@ -1,4 +1,4 @@
-# SMMMARIA
+# CHEAPSMMUG
 
 > Enterprise-grade Social Media Marketing (SMM) Panel with automated
 > order fulfillment, wallet management, supplier integrations, Child
@@ -9,7 +9,7 @@
 <div align="center">
 
 <img src="https://ik.imagekit.io/s95tumxuk/IMG_3295.png"
-     alt="SMMMARIA Creator"
+     alt="CHEAPSMMUG Creator"
      width="180"
      height="180"
      style="border-radius: 50%; object-fit: cover;">
