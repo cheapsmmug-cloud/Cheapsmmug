@@ -899,19 +899,19 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
                     
                     <label class="payment-tile">
-                        <input type="radio" name="payment-method" value="mtn" required style="display: none;">
+                        <input type="radio" name="payment-method" value="mtn" required class="payment-method-radio" aria-label="Select payment method">
                         <img src="https://ik.imagekit.io/s95tumxuk/IMG_5004.png" alt="MTN" style="height: 24px; width: auto; object-fit: contain; margin-bottom: 5px;">
                         <div style="font-weight: 600; font-size: 14px;">MTN Mobile Money</div>
                     </label>
                     
                     <label class="payment-tile">
-                        <input type="radio" name="payment-method" value="airtel" required style="display: none;">
+                        <input type="radio" name="payment-method" value="airtel" required class="payment-method-radio" aria-label="Select payment method">
                         <img src="https://ik.imagekit.io/s95tumxuk/IMG_5003.jpeg" alt="Airtel" style="height: 24px; width: auto; object-fit: contain; margin-bottom: 5px;">
                         <div style="font-weight: 600; font-size: 14px;">Airtel Money</div>
                     </label>
                     
                     <label class="payment-tile">
-                        <input type="radio" name="payment-method" value="card" required style="display: none;">
+                        <input type="radio" name="payment-method" value="card" required class="payment-method-radio" aria-label="Select payment method">
                         <div style="display: flex; gap: 5px; align-items: center; justify-content: center; margin-bottom: 5px;">
                             <img src="https://ik.imagekit.io/s95tumxuk/IMG_5005.png" alt="Visa" style="height: 20px; width: auto; object-fit: contain;">
                             <img src="https://ik.imagekit.io/s95tumxuk/IMG_5005.png" alt="Mastercard" style="height: 20px; width: auto; object-fit: contain;">
@@ -1178,6 +1178,75 @@
         renderPaymentMethods(filtered);
     });
 </script>
+
+    <!-- Wallet page interaction fallback: keeps payment tiles functional without changing backend code. -->
+    <script>
+    (() => {
+        const initWalletPaymentTiles = () => {
+            const form = document.getElementById('deposit-form');
+            if (!form || form.dataset.paymentTilesReady === 'true') return;
+            form.dataset.paymentTilesReady = 'true';
+
+            const radios = form.querySelectorAll('input[name="payment-method"]');
+            const fields = form.querySelectorAll('.dynamic-fields');
+
+            const syncPaymentMethod = (radio) => {
+                fields.forEach((field) => { field.style.display = 'none'; });
+                form.querySelectorAll('.payment-tile').forEach((tile) => tile.classList.remove('active'));
+
+                const tile = radio.closest('.payment-tile');
+                if (tile) tile.classList.add('active');
+
+                const selectedFields = document.getElementById(radio.value + '-fields');
+                if (selectedFields) selectedFields.style.display = 'block';
+            };
+
+            radios.forEach((radio) => {
+                radio.addEventListener('change', () => {
+                    if (radio.checked) syncPaymentMethod(radio);
+                });
+                // Also synchronize when a user taps the containing tile on touch devices.
+                const tile = radio.closest('.payment-tile');
+                if (tile) {
+                    tile.addEventListener('click', () => {
+                        if (!radio.checked) {
+                            radio.checked = true;
+                            radio.dispatchEvent(new Event('change', { bubbles: true }));
+                        }
+                    });
+                }
+            });
+
+            const initiallySelected = form.querySelector('input[name="payment-method"]:checked');
+            if (initiallySelected) syncPaymentMethod(initiallySelected);
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initWalletPaymentTiles, { once: true });
+        } else {
+            initWalletPaymentTiles();
+        }
+    })();
+    </script>
+
+    <style>
+        /* Keep radios accessible while allowing the whole payment tile to be tapped. */
+        .payment-method-radio {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+        .payment-tile:focus-within {
+            outline: 2px solid var(--blue);
+            outline-offset: 2px;
+        }
+    </style>
 
     <!-- JS Imports -->
     <script type="module" src="assets/js/app.js"></script>
