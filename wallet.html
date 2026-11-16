@@ -73,7 +73,7 @@
          ========================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     
     <!-- ==========================================
          9. CSS IMPORTS
@@ -95,697 +95,94 @@
     
 
     <style>
-/* ============================================================
-   REDESIGNED UI — modern blue / white theme (matches mockups)
-   Visual-only overhaul: no IDs, classes or JS logic were changed.
-   The original assets/css/*.css files stay linked; every rule
-   below simply overrides their colors, fonts and spacing.
-   ============================================================ */
-
-/* ---------- 1. DESIGN TOKENS ---------- */
-:root {
-    --primary: #4353FF;
-    --primary-dark: #3243E8;
-    --primary-soft: #EEF1FF;
-    --primary-border: #D9E0FF;
-    --green: #22C55E;
-    --green-dark: #16A34A;
-    --orange: #F59E0B;
-    --red: #EF4444;
-
-    --bg-body: #F2F5FA;
-    --card-bg: #FFFFFF;
-    --border-color: #E4E9F2;
-    --text-primary: #0F172A;
-    --text-secondary: #5B6B84;
-    --text-muted: #8A94A6;
-
-    --color-gold: #4353FF;
-    --font-head: 'Poppins', 'Inter', sans-serif;
-    --font-body: 'Inter', sans-serif;
-}
-
-[data-theme="dark"] {
-    --primary: #5A6BFF;
-    --primary-dark: #4051E6;
-    --primary-soft: rgba(90, 107, 255, 0.14);
-    --primary-border: rgba(122, 136, 255, 0.45);
-
-    --bg-body: #0B1424;
-    --card-bg: #101C31;
-    --border-color: #1F2C47;
-    --text-primary: #E8EDF7;
-    --text-secondary: #9FB0C9;
-    --text-muted: #7C8DA6;
-    --color-gold: #8A94FF;
-}
-
-/* ---------- 2. BASE ---------- */
-html { scroll-behavior: smooth; }
-body {
-    background: var(--bg-body) !important;
-    font-family: var(--font-body);
-    color: var(--text-primary);
-}
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); color: var(--text-primary); }
-.text-muted { color: var(--text-secondary) !important; }
-.text-gold { color: var(--primary) !important; }
-
-::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #C4CEDD; border-radius: 8px; }
-[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #26364F; }
-
-/* ---------- 3. NAVBAR ---------- */
-.navbar {
-    background: var(--card-bg) !important;
-    border-bottom: 1px solid var(--border-color) !important;
-}
-.navbar__toggle,
-.navbar__icon-btn {
-    background: transparent !important;
-    border: none !important;
-    color: var(--text-primary) !important;
-    cursor: pointer;
-}
-.navbar__icon-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: background .2s ease, color .2s ease;
-}
-.navbar__toggle:hover,
-.navbar__icon-btn:hover {
-    background: var(--primary-soft) !important;
-    color: var(--primary) !important;
-}
-.navbar__balance {
-    background: var(--primary-soft) !important;
-    border: 1px solid var(--primary-border) !important;
-    border-radius: 10px !important;
-    padding: 8px 14px !important;
-    font-weight: 700 !important;
-    font-size: .95rem !important;
-    color: var(--primary) !important;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-.balance-label,
-.balance-amount { color: var(--primary) !important; }
-.navbar__profile { display: flex; align-items: center; }
-.avatar {
-    width: 44px !important;
-    height: 44px !important;
-    border-radius: 10px !important;
-    background: var(--primary) !important;
-    color: #FFFFFF !important;
-    font-family: var(--font-head);
-    font-weight: 700 !important;
-    font-size: 1rem !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    letter-spacing: .02em;
-}
-@media (max-width: 768px) {
-    .navbar__search { display: none !important; }
-    .profile__info { display: none !important; }
-    .navbar__balance { display: inline-flex !important; }
-}
-
-/* ---------- 4. PAGE HEADER ---------- */
-.page-header {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-bottom: 22px;
-    margin-bottom: 26px;
-    border-bottom: 1px solid var(--border-color);
-}
-.page-title {
-    margin: 0;
-    font-size: 2.1rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-}
-.page-subtitle {
-    margin: 0;
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    line-height: 1.55;
-}
-.breadcrumbs {
-    margin-top: 8px;
-    align-self: flex-end;
-    text-align: right;
-    font-size: .98rem;
-    color: var(--text-muted);
-}
-.breadcrumbs a { color: var(--primary); font-weight: 500; text-decoration: none; }
-.breadcrumbs a:hover { text-decoration: underline; }
-
-/* ---------- 5. CARDS ---------- */
-.card {
-    background: var(--card-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 16px !important;
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-}
-[data-theme="dark"] .card { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); }
-.card__title {
-    font-family: var(--font-head);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .04em;
-    font-size: 1.18rem;
-    color: var(--text-primary);
-}
-
-/* balance card */
-.balance-card__label {
-    text-transform: uppercase !important;
-    letter-spacing: .16em !important;
-    font-size: .8rem !important;
-    font-weight: 700 !important;
-    color: var(--text-muted) !important;
-    margin: 0;
-}
-.balance-card__amount {
-    color: var(--text-primary) !important;
-    font-family: var(--font-head);
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-}
-.balance-card .btn { margin-top: 18px; }
-
-/* ---------- 6. BUTTONS ---------- */
-.btn {
-    font-family: var(--font-head);
-    font-weight: 600;
-    border-radius: 10px !important;
-    text-decoration: none;
-    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
-}
-.btn--block {
-    width: 100% !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 20px !important;
-    font-size: 1.02rem !important;
-}
-.btn--primary,
-.btn--gold {
-    background: var(--primary) !important;
-    color: #FFFFFF !important;
-    border: none !important;
-    box-shadow: 0 6px 16px rgba(67, 83, 255, .25);
-}
-.btn--primary:hover,
-.btn--gold:hover {
-    background: var(--primary-dark) !important;
-    transform: translateY(-1px);
-}
-.btn--success {
-    background: var(--green) !important;
-    color: #FFFFFF !important;
-    border: none !important;
-}
-.btn--success:hover { background: var(--green-dark) !important; }
-.btn--outline {
-    background: var(--card-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    color: var(--text-primary) !important;
-}
-.btn--outline:hover {
-    border-color: var(--primary-border) !important;
-    background: var(--primary-soft) !important;
-}
-
-/* ---------- 7. TABLE ---------- */
-.table th {
-    text-transform: uppercase;
-    font-size: .72rem;
-    letter-spacing: .1em;
-    font-weight: 700;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border-color);
-    padding: 12px;
-    white-space: nowrap;
-}
-.table td {
-    padding: 14px 12px;
-    border-bottom: 1px solid var(--border-color);
-    color: var(--text-primary);
-    font-size: .93rem;
-    vertical-align: middle;
-}
-.table tbody tr { transition: background .15s ease; }
-.table tbody tr:hover { background: var(--primary-soft); }
-.table tbody tr:last-child td { border-bottom: none; }
-.charge-ugx { color: var(--text-muted) !important; }
-
-/* ---------- 8. FORMS ---------- */
-.form-label {
-    font-weight: 600;
-    color: var(--text-primary);
-    font-size: .95rem;
-}
-.form-input {
-    background: var(--card-bg) !important;
-    border: 1.5px solid var(--border-color) !important;
-    border-radius: 10px !important;
-    padding: 12px 14px !important;
-    color: var(--text-primary) !important;
-    font-size: .95rem;
-    outline: none;
-    transition: border-color .2s ease, box-shadow .2s ease;
-}
-.form-input:focus {
-    border-color: var(--primary) !important;
-    box-shadow: 0 0 0 3px rgba(67, 83, 255, .15) !important;
-}
-.form-input::placeholder { color: var(--text-muted); }
-
-/* payment method tiles */
-.payment-tile {
-    border: 2px solid var(--border-color) !important;
-    border-radius: 14px !important;
-    background: var(--card-bg) !important;
-    transition: all .2s ease;
-}
-.payment-tile:hover {
-    border-color: var(--primary-border) !important;
-    transform: translateY(-2px);
-}
-.payment-tile.active {
-    border-color: var(--primary) !important;
-    background: var(--primary-soft) !important;
-    box-shadow: 0 4px 15px rgba(67, 83, 255, .18) !important;
-}
-.payment-tile svg { stroke: var(--primary); }
-
-/* deposit page extras */
-.bonus-text { color: var(--text-muted); }
-.bonus-amount { color: var(--primary); }
-.manual-instructions {
-    background: var(--primary-soft) !important;
-    border: 1px solid var(--primary-border) !important;
-    border-radius: 14px !important;
-}
-.manual-instructions h4 { color: var(--primary); }
-.manual-instructions ol { color: var(--text-secondary); }
-.manual-instructions strong { color: var(--text-primary); }
-
-/* ---------- 9. INFO CARDS ---------- */
-.info-card { padding: 30px 26px; }
-.info-card svg {
-    width: 44px;
-    height: 44px;
-    color: var(--primary);
-    margin-bottom: 14px;
-}
-.info-card h4 {
-    font-size: 1.22rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-.info-card p {
-    color: var(--text-secondary);
-    font-size: .96rem;
-    line-height: 1.65;
-}
-.info-card .btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ---------- 10. SIDEBAR / DRAWER ---------- */
-.sidebar {
-    background: var(--card-bg) !important;
-    border-right: 1px solid var(--border-color) !important;
-}
-.sidebar__logo { text-decoration: none; }
-.logo-text {
-    font-family: var(--font-head);
-    font-weight: 800;
-    font-size: 1.4rem;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-}
-.sidebar__collapse-btn {
-    background: transparent !important;
-    border: none !important;
-    color: var(--text-secondary) !important;
-    cursor: pointer;
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-.sidebar__collapse-btn:hover {
-    background: var(--primary-soft) !important;
-    color: var(--primary) !important;
-}
-.sidebar__link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    border-radius: 10px;
-    transition: all .2s ease;
-}
-.sidebar__link:hover {
-    background: var(--primary-soft);
-    color: var(--primary);
-}
-.sidebar__item.active > .sidebar__link,
-.sidebar__link.active {
-    background: var(--primary-soft);
-    color: var(--primary);
-    font-weight: 600;
-}
-.sidebar__link--logout:hover {
-    background: rgba(239, 68, 68, .08);
-    color: var(--red);
-}
-.badge--notification {
-    background: var(--red) !important;
-    color: #FFFFFF !important;
-}
-
-/* widget section labels */
-.sidebar__widget-label {
-    text-transform: uppercase !important;
-    letter-spacing: .12em !important;
-    font-size: .72rem !important;
-    font-weight: 700 !important;
-    color: var(--text-muted) !important;
-}
-.widget-label__icon { display: none !important; }
-
-/* currency widget */
-.widget-currency { position: relative; }
-.widget-currency__selected {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--card-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 12px !important;
-    padding: 10px 14px !important;
-    cursor: pointer;
-    color: var(--text-primary) !important;
-    font-family: var(--font-head);
-    font-weight: 700;
-}
-.widget-currency__selected:hover { border-color: var(--primary-border) !important; }
-.widget-currency__flag {
-    width: 42px;
-    height: 42px;
-    border-radius: 10px !important;
-    background: var(--primary) !important;
-    color: #FFFFFF !important;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-.widget-currency__code { font-size: 1.02rem; }
-.widget-currency__chevron { margin-left: auto; color: var(--text-muted); }
-.widget-currency__dropdown {
-    background: var(--card-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 12px !important;
-    box-shadow: 0 12px 32px rgba(15, 23, 42, .14);
-    overflow: hidden;
-}
-[data-theme="dark"] .widget-currency__dropdown { box-shadow: 0 12px 32px rgba(0, 0, 0, .5); }
-.widget-currency__search {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border-color);
-    color: var(--text-muted);
-}
-.widget-currency__search-input {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--text-primary);
-    width: 100%;
-    font-size: .9rem;
-}
-.widget-currency__search-input::placeholder { color: var(--text-muted); }
-.widget-currency__list {
-    max-height: 220px;
-    overflow-y: auto;
-    padding: 8px;
-}
-.widget-currency__list > * {
-    padding: 10px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: .92rem;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-}
-.widget-currency__list > *:hover { background: var(--primary-soft); }
-
-/* statistics widget */
-.widget-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.widget-stat {
-    background: var(--primary-soft) !important;
-    border-radius: 12px !important;
-    padding: 14px 8px !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
-.widget-stat__label {
-    text-transform: uppercase;
-    font-size: .66rem;
-    letter-spacing: .1em;
-    font-weight: 600;
-    color: var(--text-muted);
-}
-.widget-stat__value {
-    font-family: var(--font-head);
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: var(--text-primary);
-}
-.widget-stat__value--accent { color: var(--primary) !important; }
-
-/* service status widget */
-.widget-service {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 9px 2px;
-}
-.widget-service__dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    background: var(--green);
-    box-shadow: 0 0 0 3px rgba(34, 197, 94, .18);
-}
-.widget-service__name {
-    flex: 1;
-    color: var(--text-primary);
-    font-size: .95rem;
-    font-weight: 500;
-}
-.widget-service__status {
-    font-size: .86rem;
-    font-weight: 600;
-    color: var(--green);
-}
-.widget-service[data-status="slow"] .widget-service__dot,
-.widget-service[data-status="degraded"] .widget-service__dot,
-.widget-service[data-status="maintenance"] .widget-service__dot,
-.widget-service[data-status="warning"] .widget-service__dot,
-.widget-service[data-status="issues"] .widget-service__dot,
-.widget-service[data-status="pending"] .widget-service__dot {
-    background: var(--orange);
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, .18);
-}
-.widget-service[data-status="slow"] .widget-service__status,
-.widget-service[data-status="degraded"] .widget-service__status,
-.widget-service[data-status="maintenance"] .widget-service__status,
-.widget-service[data-status="warning"] .widget-service__status,
-.widget-service[data-status="issues"] .widget-service__status,
-.widget-service[data-status="pending"] .widget-service__status {
-    color: var(--orange);
-}
-.widget-service[data-status="offline"] .widget-service__dot,
-.widget-service[data-status="down"] .widget-service__dot,
-.widget-service[data-status="error"] .widget-service__dot {
-    background: var(--red);
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, .18);
-}
-.widget-service[data-status="offline"] .widget-service__status,
-.widget-service[data-status="down"] .widget-service__status,
-.widget-service[data-status="error"] .widget-service__status {
-    color: var(--red);
-}
-
-/* help widget */
-.widget-help {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.widget-help__btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 16px !important;
-    border-radius: 10px !important;
-    font-size: .95rem;
-    font-weight: 600;
-    font-family: var(--font-body);
-    text-decoration: none;
-    cursor: pointer;
-    transition: all .2s ease;
-}
-.widget-help__btn svg { width: 18px; height: 18px; flex-shrink: 0; }
-.widget-help__btn--chat {
-    background: var(--primary-soft) !important;
-    border: 1.5px solid var(--primary) !important;
-    color: var(--primary) !important;
-}
-.widget-help__btn--chat:hover {
-    background: var(--primary) !important;
-    color: #FFFFFF !important;
-}
-.widget-help__btn--ticket,
-.widget-help__btn--whatsapp {
-    background: var(--card-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    color: var(--text-primary) !important;
-}
-.widget-help__btn--ticket:hover,
-.widget-help__btn--whatsapp:hover {
-    border-color: var(--primary-border) !important;
-    background: var(--primary-soft) !important;
-}
-
-/* community widget */
-.widget-community { display: flex; gap: 10px; }
-.widget-community__link {
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    background: var(--card-bg);
-    color: var(--text-secondary);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all .2s ease;
-}
-.widget-community__link svg { width: 18px; height: 18px; }
-.widget-community__link:hover {
-    color: var(--primary);
-    border-color: var(--primary-border);
-    background: var(--primary-soft);
-}
-
-/* ---------- 11. FOOTER ---------- */
-.footer { border-top: 1px solid var(--border-color); color: var(--text-muted); }
-.footer__text { color: var(--text-muted); }
-.footer__links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-}
-.footer__links a:hover { color: var(--primary); }
-
-/* ---------- 12. MOBILE BOTTOM NAV ---------- */
-.mobile-nav {
-    background: var(--card-bg) !important;
-    border-top: 1px solid var(--border-color) !important;
-}
-.mobile-nav__link {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: .72rem;
-    font-weight: 500;
-    transition: color .2s ease;
-}
-.mobile-nav__link:hover,
-.mobile-nav__link.active,
-.mobile-nav__link[href$="wallet.html"] { color: var(--primary); }
-
-/* ---------- 13. OVERLAYS & MODALS ---------- */
-.sidebar-overlay { background: rgba(8, 13, 26, .55) !important; }
-[data-theme="dark"] .sidebar-overlay { background: rgba(0, 0, 0, .65) !important; }
-.modal-overlay { background: rgba(8, 13, 26, .6) !important; }
-.modal {
-    background: var(--card-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 16px !important;
-}
-.modal__title {
-    font-family: var(--font-head);
-    font-weight: 700;
-    color: var(--text-primary);
-}
-.modal__close {
-    background: transparent !important;
-    border: none !important;
-    color: var(--text-secondary) !important;
-    cursor: pointer;
-}
-.modal__close:hover { color: var(--primary) !important; }
-.binance-qr-modal__content {
-    background: var(--card-bg);
-    border-radius: 16px;
-}
-
-/* ---------- 14. DARK MODE SURFACES ---------- */
-[data-theme="dark"] .navbar { background: #0E1A30 !important; }
-[data-theme="dark"] .sidebar { background: #0C1728 !important; }
-[data-theme="dark"] .mobile-nav { background: #0E1A30 !important; }
-[data-theme="dark"] .widget-stat { background: rgba(90, 107, 255, .12) !important; }
-[data-theme="dark"] .widget-currency__selected { background: #0C1728 !important; }
-[data-theme="dark"] .payment-tile { background: #0E1930 !important; border-color: #223148 !important; }
-[data-theme="dark"] .payment-tile.active {
-    background: rgba(90, 107, 255, .12) !important;
-    border-color: var(--primary) !important;
-}
-[data-theme="dark"] .form-input {
-    background: #0C1728 !important;
-    border-color: #223148 !important;
-    color: var(--text-primary) !important;
-}
-[data-theme="dark"] .btn--outline { background: transparent !important; }
-[data-theme="dark"] .breadcrumbs a { color: #97A1FF; }
-[data-theme="dark"] .balance-card__amount { color: var(--text-primary) !important; }
-[data-theme="dark"] .widget-help__btn--ticket,
-[data-theme="dark"] .widget-help__btn--whatsapp { background: transparent !important; }
-[data-theme="dark"] .widget-community__link { background: transparent; }
-[data-theme="dark"] .table tbody tr:hover { background: rgba(90, 107, 255, .08); }
-[data-theme="dark"] .footer { border-color: var(--border-color); }
+        .payment-tile {
+            cursor: pointer; 
+            border: 2px solid #E5E7EB; 
+            border-radius: 12px; 
+            padding: 15px; 
+            text-align: center; 
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: var(--card-bg, #fff);
+        }
+        .payment-tile:hover {
+            border-color: #F4B342;
+            transform: translateY(-2px);
+        }
+        [data-theme="dark"] .payment-tile {
+            border-color: #182654;
+            background: #101E4E;
+        }
+        .payment-tile.active {
+            border-color: #F4B342 !important;
+            background-color: rgba(244, 179, 66, 0.1) !important;
+            box-shadow: 0 4px 15px rgba(244, 179, 66, 0.2);
+        }
+        .payment-tile svg, .payment-tile img {
+            width: 32px;
+            height: 32px;
+        }
+        .bonus-text {
+            margin-top: 8px; 
+            font-size: 14px; 
+            color: #B8C2D8; 
+            font-weight: 500;
+        }
+        .bonus-amount {
+            color: #F4B342; 
+            font-weight: 700;
+            margin-left: 10px;
+        }
+        .info-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 24px;
+        }
+        .info-card svg {
+            width: 40px;
+            height: 40px;
+            color: #F4B342;
+            margin-bottom: 12px;
+        }
+        /* Styling for the UGX text in the transactions table */
+        .charge-ugx {
+            display: block;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+        /* Styling for the Manual Payment Instructions Box */
+        .manual-instructions {
+            background: rgba(244, 179, 66, 0.1);
+            border: 1px solid var(--color-gold);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+        .manual-instructions h4 {
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--color-gold);
+            font-size: 16px;
+        }
+        .manual-instructions ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        .manual-instructions ol li {
+            margin-bottom: 8px;
+        }
+        .manual-instructions strong {
+            color: var(--text-primary);
+        }
     </style>
 </head>
 <body data-page="wallet">
@@ -1019,8 +416,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); color: var(--text-primar
 <!-- PAGE SPECIFIC CONTENT -->
 <main class="content-area" id="page-content">
     <div class="page-header">
-        <h1 class="page-title">Wallet</h1>
-        <p class="page-subtitle">Manage your balance, deposits and transaction activity.</p>
+        <h1 class="page-title">My Wallet</h1>
         <div class="breadcrumbs"><a href="dashboard.html">Dashboard</a> / <span>Wallet</span></div>
     </div>
 
@@ -1403,7 +799,16 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); color: var(--text-primar
     </div>
 </div>
 
-
+<!-- ═══════════════════════════════════════════════════
+     BINANCE PAY — QR CODE ENLARGE MODAL
+     ═══════════════════════════════════════════════════ -->
+<div class="binance-qr-modal" id="binance-qr-modal" role="dialog" aria-modal="true" aria-label="Enlarged Binance QR Code">
+    <div class="binance-qr-modal__content">
+        <button class="binance-qr-modal__close" id="binance-qr-modal-close" type="button" aria-label="Close">&times;</button>
+        <img id="binance-qr-modal-img" src="" alt="Binance Pay QR Code (Enlarged)">
+        <div class="binance-qr-modal__title">Binance Pay QR Code</div>
+    </div>
+</div>
 
 <!-- Script to populate and search payment methods -->
 <script>
@@ -1500,6 +905,6 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); color: var(--text-primar
 </script>
 
     <!-- JS Imports -->
-    <script type="module" src="assets/js/app.js"></script>
+    <script type="module" src="assets/j/app.js"></script>
 </body>
 </html>
