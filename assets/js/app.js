@@ -1,5 +1,5 @@
 // ===============================================
-// App.js - User Frontend Main Entry Point
+// App.js  User Frontend Main Entry Point
 // ===============================================
 
 // 1. Route Guard (Must be at the very top)
@@ -31,10 +31,17 @@ import { initCurrency, formatCurrency } from '../modules/currency.js'; // Added 
 import { loadPageModule } from './router.js';
 import { handleLogin, handleRegister, handleLogout } from '../modules/auth.js';
 
+// Binance Pay Modules
+import { BinancePayConfig } from '../modules/binance-pay-config.js';
+import { initBinancePay } from '../modules/binance-pay.js';
+
 // Expose Auth functions to window for HTML inline events (onsubmit/onclick)
 window.handleLogin = handleLogin;
 window.handleRegister = handleRegister;
 window.handleLogout = handleLogout;
+
+// Expose Binance Pay to window for admin console testing
+window.BinancePayConfig = BinancePayConfig;
 
 // Helper to update navbar balance globally
 export function updateNavbarBalance(balance) {
@@ -139,8 +146,33 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
  }
  
+ // Initialize Binance Pay if the deposit form exists on the page
+ if (document.getElementById('deposit-form')) {
+  initBinancePay();
+ }
+ 
  // Load the specific module for the current page
  if (!isPublicPage) {
   loadPageModule();
+ }
+});
+
+// Put this in app.js or at the bottom of your main HTML layout
+document.addEventListener('click', (e) => {
+ const mariaAdsSheet = document.getElementById('mariaAdsSheet');
+ 
+ // 1. If the Maria Ads button is clicked, open the sheet
+ if (e.target.closest('#mariaAdsBtn')) {
+  if (mariaAdsSheet) mariaAdsSheet.classList.add('active');
+ }
+ 
+ // 2. If the close handle, the dark background, or the continue button is clicked, close the sheet
+ if (e.target.closest('#closeMariaAdsSheet') || e.target === mariaAdsSheet || e.target.closest('#continueToMariaAds')) {
+  if (mariaAdsSheet) mariaAdsSheet.classList.remove('active');
+ }
+ 
+ // 3. Handle the redirect
+ if (e.target.closest('#continueToMariaAds')) {
+  window.open('https://ads.smmaria.site', '_blank');
  }
 });
