@@ -14,40 +14,35 @@ let currentUser = {};
 let currentOrders = [];
 let currentNotifications = [];
 
-// Ensure you have these imports at the top of your JS file:
-// import { database } from './firebase.js';
-// import { ref, get } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+// ===============================================
+// New Account Announcements
+// ===============================================
 
 async function loadNewAccountAnnouncements() {
     const scrollContainer = document.getElementById('announcementScrollContainer');
     if (!scrollContainer) return;
-    
+
     try {
-        // 1. Fetch directly from Firebase Realtime Database
         const accountsRef = ref(database, 'accountInventory');
         const snapshot = await get(accountsRef);
-        
+
         if (!snapshot.exists()) return;
-        
-        // 2. Extract the data using .val()
+
         const accounts = Object.values(snapshot.val());
-        
-        // Check for accounts created in the last 7 days that are still available
+
         const sevenDaysAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
+
         const newAccounts = accounts.filter(acc =>
             acc.createdAt &&
             acc.createdAt > sevenDaysAgo &&
-            acc.status === 'available' // Only announce if they are still for sale
+            acc.status === 'available'
         );
-        
+
         if (newAccounts.length > 0) {
-            // Prevent duplicate injections if the function runs multiple times
             if (document.getElementById('new-acc-banner-wrapper')) return;
-            
-            // Get unique platforms of the new accounts
+
             const platforms = [...new Set(newAccounts.map(a => a.platform))];
-            
-            // Create the new accounts banner HTML
+
             const newAccountsBanner = `
                 <div id="new-acc-banner-wrapper" style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
                     <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; background: rgba(244, 179, 66, 0.15); padding: 6px 14px; border-radius: 20px; border: 1px solid var(--color-gold);">
@@ -59,17 +54,13 @@ async function loadNewAccountAnnouncements() {
                     </a>
                 </div>
             `;
-            
-            // 3. Use insertAdjacentHTML instead of innerHTML += to preserve existing elements
+
             scrollContainer.insertAdjacentHTML('beforeend', newAccountsBanner);
         }
     } catch (err) {
         console.error('Failed to load new account announcements:', err);
     }
 }
-
-// Call it inside your init function, e.g., inside initBuyAccountPage()
-// loadNewAccountAnnouncements();
 
 // ===============================================
 // Notification Popup
@@ -79,6 +70,7 @@ function checkForNewNotificationPopup(notifications) {
     if (!notifications || notifications.length === 0) return;
 
     const now = new Date();
+
     const seenNotifs = JSON.parse(
         localStorage.getItem('smmmaria_seen_notifs') || '[]'
     );
@@ -108,15 +100,15 @@ function checkForNewNotificationPopup(notifications) {
     <div class="modal-overlay" id="notifPopupModal"
          style="display:flex;position:fixed;top:0;left:0;width:100%;height:100%;
          background:rgba(0,0,0,.6);z-index:2000;justify-content:center;align-items:center;">
-         
+
       <div class="modal"
            style="background:var(--bg-card);max-width:450px;width:90%;
            border-radius:16px;overflow:hidden;">
-           
+
         <div class="modal__header"
              style="padding:20px;background:var(--color-gold);color:#fff;
              display:flex;justify-content:space-between;align-items:center;">
-             
+
           <h3 style="margin:0;">📢 New Announcement</h3>
 
           <button id="closeNotifPopup"
@@ -171,48 +163,55 @@ function updateBalanceUI(user = {}) {
         ($('#totalSpentUgx').textContent = getCurrency());
 }
 
+// ===============================================
+// FIXED ORDER STATUS COUNTERS
+// ===============================================
+
 function updateStatsUI(orders = []) {
+    const normalizedOrders = Array.isArray(orders) ? orders : [];
+
+    const getStatus = order =>
+        String(order?.status || '')
+            .trim()
+            .toLowerCase()
+            .replace(/\s+/g, '_');
+
+    const completed = normalizedOrders.filter(
+        order => getStatus(order) === 'completed'
+    ).length;
+
+    const pending = normalizedOrders.filter(order =>
+        ['pending', 'processing', 'in_progress'].includes(getStatus(order))
+    ).length;
+
+    const cancelled = normalizedOrders.filter(order =>
+        ['cancelled', 'canceled', 'failed'].includes(getStatus(order))
+    ).length;
+
+    // Match the actual Order Status elements in dashboard.html.
+    const pendingValue = $('.status-item--pending .status-item__value');
+    const completedValue = $('.status-item--completed .status-item__value');
+    const cancelledValue = $('.status-item--cancelled .status-item__value');
+
+    if (pendingValue) pendingValue.textContent = pending;
+    if (completedValue) completedValue.textContent = completed;
+    if (cancelledValue) cancelledValue.textContent = cancelled;
+
+    // Preserve support for existing stat cards.
     const statCards = $$('.stat-card');
 
-    if (!statCards.length) return;
+    const setStatCardValue = (index, value) => {
+        const valueElement = statCards[index]?.querySelector('.stat-card__value');
 
-    const completed = orders.filter(
-        o => o.status === 'completed'
-    ).length;
+        if (valueElement) {
+            valueElement.textContent = value;
+        }
+    };
 
-    const pending = orders.filter(
-        o =>
-            o.status === 'pending' ||
-            o.status === 'processing' ||
-            o.status === 'in_progress'
-    ).length;
-
-    const cancelled = orders.filter(
-        o =>
-            o.status === 'cancelled' ||
-            o.status === 'failed' ||
-            o.status === 'canceled'
-    ).length;
-
-    if (statCards[1]) {
-        statCards[1].querySelector('.stat-card__value').textContent =
-            orders.length;
-    }
-
-    if (statCards[2]) {
-        statCards[2].querySelector('.stat-card__value').textContent =
-            completed;
-    }
-
-    if (statCards[3]) {
-        statCards[3].querySelector('.stat-card__value').textContent =
-            pending;
-    }
-
-    if (statCards[4]) {
-        statCards[4].querySelector('.stat-card__value').textContent =
-            cancelled;
-    }
+    setStatCardValue(1, normalizedOrders.length);
+    setStatCardValue(2, completed);
+    setStatCardValue(3, pending);
+    setStatCardValue(4, cancelled);
 }
 
 // ===============================================
@@ -271,38 +270,28 @@ function updateOrdersUI(orders = []) {
 
 function formatNotificationMessage(text) {
     if (!text) return '';
-    
-    // 1. Escape HTML to prevent XSS attacks
+
     let safeText = text
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;");
-    
-    // 2. Regex to find URLs in the text
+
     const urlRegex = /(https?:\/\/[^\s]+)/g;
-    
-    // 3. Replace URLs with media tags or clickable links
+
     safeText = safeText.replace(urlRegex, (url) => {
-        // Remove trailing punctuation that might have been caught in the regex
         let cleanUrl = url.replace(/[.,;:!?)\]]$/, '');
-        
-        // Check if it's an image
+
         if (cleanUrl.match(/\.(jpeg|jpg|gif|png|webp)$/i)) {
             return `<img src="${cleanUrl}" alt="Notification Media" style="max-width: 100%; max-height: 200px; border-radius: 8px; margin-top: 8px; display: block; cursor: pointer; border: 1px solid rgba(255,255,255,0.1);" onclick="window.open('${cleanUrl}', '_blank')" />`;
-        }
-        // Check if it's a video
-        else if (cleanUrl.match(/\.(mp4|webm|ogg)$/i)) {
+        } else if (cleanUrl.match(/\.(mp4|webm|ogg)$/i)) {
             return `<video controls style="max-width: 100%; max-height: 250px; border-radius: 8px; margin-top: 8px; display: block;"><source src="${cleanUrl}"></video>`;
-        }
-        // It's a normal link, make it clickable
-        else {
+        } else {
             return `<a href="${cleanUrl}" target="_blank" style="color: var(--color-gold, #f5a623); text-decoration: underline; word-break: break-all;">${cleanUrl}</a>`;
         }
     });
-    
-    // Preserve line breaks
+
     safeText = safeText.replace(/\n/g, '<br>');
-    
+
     return safeText;
 }
 
@@ -312,9 +301,9 @@ function formatNotificationMessage(text) {
 
 function updateNotificationsUI(notifications = []) {
     const notifList = $('.recent-activity-card .notification-list');
-    
+
     if (!notifList) return;
-    
+
     if (!notifications.length) {
         notifList.innerHTML = `
         <li class="notification-item">
@@ -332,7 +321,7 @@ function updateNotificationsUI(notifications = []) {
         `;
         return;
     }
-    
+
     notifList.innerHTML = notifications
         .slice(0, 5)
         .map(n => `
@@ -385,9 +374,7 @@ async function refreshDashboardBackground() {
         updateBalanceUI(currentUser);
         updateStatsUI(currentOrders);
 
-        checkForNewNotificationPopup(
-            currentNotifications
-        );
+        checkForNewNotificationPopup(currentNotifications);
 
         const ordersHash = JSON.stringify(
             currentOrders.slice(0, 5)
@@ -404,10 +391,9 @@ async function refreshDashboardBackground() {
 
         if (notifHash !== lastNotifsHash) {
             lastNotifsHash = notifHash;
-            updateNotificationsUI(
-                currentNotifications
-            );
+            updateNotificationsUI(currentNotifications);
         }
+
     } catch (error) {
         console.warn(
             'Dashboard refresh failed:',
@@ -436,8 +422,7 @@ export default async function initDashboard() {
 
         currentUser = meRes.data || {};
         currentOrders = ordersRes.data || [];
-        currentNotifications =
-            notifRes.data || [];
+        currentNotifications = notifRes.data || [];
 
         serviceMap = {};
 
@@ -448,16 +433,11 @@ export default async function initDashboard() {
         updateBalanceUI(currentUser);
         updateStatsUI(currentOrders);
         updateOrdersUI(currentOrders);
-        updateNotificationsUI(
-            currentNotifications
-        );
+        updateNotificationsUI(currentNotifications);
 
-        checkForNewNotificationPopup(
-            currentNotifications
-        );
+        checkForNewNotificationPopup(currentNotifications);
 
-        const chartContainer =
-            $('#chart-revenue');
+        const chartContainer = $('#chart-revenue');
 
         if (chartContainer) {
             const mockData = [
@@ -465,13 +445,11 @@ export default async function initDashboard() {
                 55, 90, 70
             ];
 
-            chartContainer.innerHTML =
-                mockData
-                    .map(
-                        h =>
-                            `<div class="chart-bar" style="height:${h}%"></div>`
-                    )
-                    .join('');
+            chartContainer.innerHTML = mockData
+                .map(h =>
+                    `<div class="chart-bar" style="height:${h}%"></div>`
+                )
+                .join('');
         }
 
         lastOrdersHash = JSON.stringify(
@@ -491,6 +469,7 @@ export default async function initDashboard() {
             refreshDashboardBackground,
             15000
         );
+
     } catch (error) {
         console.error(
             'Failed to load dashboard:',
