@@ -49,35 +49,34 @@ export default async function initWallet() {
 
   walletInitialized = true;
 
-  try {
-    const meRes = await api.getMe();
-
-    if (meRes.data && meRes.data.email) {
-      userEmail = meRes.data.email;
-    }
-  } catch (e) {
-    console.warn("Could not fetch user email for payment gateway.");
-  }
-
-  await refreshWallet();
+  // Attach form listeners immediately. Do not make payment-method
+  // selection wait for network requests to finish.
+  setupDepositForm();
 
   window.addEventListener("currencyChanged", updateWalletUI);
 
-  setupDepositForm();
+  // Load profile and wallet independently so one slow request does not
+  // prevent the other from completing.
+  const profileRequest = api.getMe()
+    .then((meRes) => {
+      const me = meRes?.data ?? meRes;
+      if (me?.email) userEmail = me.email;
+    })
+    .catch((error) => {
+      console.warn("Could not fetch user email for payment gateway:", error);
+    });
 
-  checkPendingAndShowCancel();
+  await refreshWallet();
+  await profileRequest;
+
+  await checkPendingAndShowCancel();
 
   startBackgroundRefresh();
 
   window.addEventListener("beforeunload", () => {
-    if (pendingPollInterval) {
-      clearInterval(pendingPollInterval);
-    }
-
-    if (backgroundRefreshInterval) {
-      clearInterval(backgroundRefreshInterval);
-    }
-  });
+    if (pendingPollInterval) clearInterval(pendingPollInterval);
+    if (backgroundRefreshInterval) clearInterval(backgroundRefreshInterval);
+  }, { once: true });
 }
 
 // ===============================================
@@ -115,22 +114,26 @@ async function refreshWallet() {
   try {
     const response = await api.getWallet();
 
-    // Expected API structure:
-    // response.data.balance
-    // response.data.transactions
-
-    const walletData = response?.data;
+    // The API may return either { data: { balance, transactions } }
+    // or the wallet object directly. Support both without changing
+    // the backend contract.
+    const walletData = response?.data ?? response;
 
     if (!walletData || typeof walletData !== "object") {
       throw new Error("Wallet response was empty or invalid.");
     }
 
-    currentBalance = Number(walletData.balance ?? 0);
-
-    if (!Number.isFinite(currentBalance)) {
-      currentBalance = 0;
+    if (walletData.balance === undefined || walletData.balance === null) {
+      throw new Error("The wallet response did not contain a balance field.");
     }
 
+    const parsedBalance = Number(walletData.balance);
+
+    if (!Number.isFinite(parsedBalance)) {
+      throw new Error("The wallet balance returned by the server is invalid.");
+    }
+
+    currentBalance = parsedBalance;
     currentTransactions = Array.isArray(walletData.transactions)
       ? walletData.transactions
       : [];
@@ -175,7 +178,7 @@ async function refreshWallet() {
     console.error("Wallet refresh failed:", error);
 
     if (balanceEl) {
-      balanceEl.textContent = formatCurrency(0);
+      balanceEl.textContent = "Unable to load balance";
     }
 
     if (tbody) {
@@ -546,7 +549,7 @@ function updateWalletUI() {
       try {
         const res = await api.getPaymentStatus(txId);
 
-        const updated = res?.data;
+        const updated = res?.data ?? res;
 
         if (
           updated &&
@@ -909,8 +912,10 @@ function setupDepositForm() {
 
       const res = await api.createDeposit(payload);
 
-      if (res?.data?.id) {
-        activePaymentId = res.data.id;
+      const paymentData = res?.data ?? res;
+
+      if (paymentData?.id) {
+        activePaymentId = paymentData.id;
       }
 
       if (
@@ -1089,13 +1094,15 @@ async function handleCardPayment(
         idempotencyKey
       });
 
-      if (res?.data?.id) {
-        activePaymentId = res.data.id;
+      const paymentData = res?.data ?? res;
+
+      if (paymentData?.id) {
+        activePaymentId = paymentData.id;
       }
 
-      if (res?.data?.redirect_url) {
+      if (paymentData?.redirect_url) {
         window.location.href =
-          res.data.redirect_url;
+          paymentData.redirect_url;
 
         return;
       }
@@ -1149,7 +1156,10 @@ async function checkPendingAndShowCancel() {
 
     const res = await api.getPayments();
 
-    const userPayments = res.data || [];
+    const paymentsData = res?.data ?? res;
+    const userPayments = Array.isArray(paymentsData)
+      ? paymentsData
+      : paymentsData?.payments || [];
 
     let activePayment = userPayments.find(
       (p) =>
@@ -1183,7 +1193,8 @@ async function checkPendingAndShowCancel() {
           activePayment.id
         );
 
-        const liveStatus = liveRes?.data?.status;
+        const liveData = liveRes?.data ?? liveRes;
+        const liveStatus = liveData?.status;
 
         if (
           liveStatus &&
@@ -1276,8 +1287,10 @@ async function pollPaymentStatus(isManual = false) {
         activePaymentId
       );
 
-      if (statusRes && statusRes.data) {
-        targetPayment = statusRes.data;
+      const statusData = statusRes?.data ?? statusRes;
+
+      if (statusData) {
+        targetPayment = statusData;
       }
 
     } catch (statusErr) {
@@ -1289,7 +1302,10 @@ async function pollPaymentStatus(isManual = false) {
 
       const res = await api.getPayments();
 
-      const payments = res.data || [];
+      const paymentsData = res?.data ?? res;
+      const payments = Array.isArray(paymentsData)
+        ? paymentsData
+        : paymentsData?.payments || [];
 
       targetPayment = payments.find(
         (p) => p.id === activePaymentId
